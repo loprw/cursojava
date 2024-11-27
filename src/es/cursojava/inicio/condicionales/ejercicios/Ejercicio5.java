@@ -56,6 +56,8 @@ public class Ejercicio5 {
 		System.out.println("Indique el sector en la empresa del empleado:");
 		String sectorEmpleado = scan.nextLine();
 		
+		String puestoEmpleado = "Otro";
+		
 //		//clasificamos si es menor de edad
 //		if (edadEmpleado < 18 && expEmpleado < 12) {
 //			clasificacionProf = "Becario Junior";
@@ -107,19 +109,16 @@ public class Ejercicio5 {
 			}
 		}
 		
-		//clasificamos tipos especiales
+		//clasificamos tipos especiales, se convierten los if separados en else if, se crea variable puesto tras indicar profe
 		if (sectorEmpleado.equals("TI") && expEmpleado >= 60) {
-			clasificacionProf = "Tech Lead";
+			puestoEmpleado = "Tech Lead";
+		} else if (sectorEmpleado.equals("Recursos Humanos") && expEmpleado >= 12 && expEmpleado <= 60) {
+			puestoEmpleado = "Gestor de Personas";
+		} else if (sectorEmpleado.equals("Ventas") && expEmpleado < 12) {
+			puestoEmpleado = "Asistente de Ventas";
 		}
 		
-		if (sectorEmpleado.equals("Recursos Humanos") && expEmpleado >= 12 && expEmpleado <= 60) {
-			clasificacionProf = "Gestor de Personas";
-		}
-		if (sectorEmpleado.equals("Ventas") && expEmpleado < 12) {
-			clasificacionProf = "Asistente de Ventas";
-		}
-		
-		System.out.println(nombreEmpleado + " del departamento " + sectorEmpleado + " tiene la categoría de " + clasificacionProf + ".");
+		System.out.println(nombreEmpleado + " del departamento " + sectorEmpleado + " tiene el puesto de " + puestoEmpleado + " la categoría de " + clasificacionProf + ".");
 		
 		scan.close();
 	}
