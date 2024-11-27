@@ -56,31 +56,56 @@ public class Ejercicio5 {
 		System.out.println("Indique el sector en la empresa del empleado:");
 		String sectorEmpleado = scan.nextLine();
 		
-		//clasificamos si es menor de edad
-		if (edadEmpleado < 18 && expEmpleado < 12) {
-			clasificacionProf = "Becario Junior";
-		} else if (edadEmpleado < 18) {
-			clasificacionProf = "Becario";
-		}
+//		//clasificamos si es menor de edad
+//		if (edadEmpleado < 18 && expEmpleado < 12) {
+//			clasificacionProf = "Becario Junior";
+//		} else if (edadEmpleado < 18) {
+//			clasificacionProf = "Becario";
+//		}
+//		
+//		//clasificamos si tiene entre 18 y 35 años 
+//		if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado < 12) {
+//			clasificacionProf = "Trainee";
+//		} else if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado >= 12 && expEmpleado <= 60) {
+//			clasificacionProf = "Junior";
+//		} else if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado > 60) {
+//			clasificacionProf = "Senior";
+//		}
+//		
+//		//clasificamos si tiene más de 35 años
+//		if (edadEmpleado > 35 && expEmpleado >= 12 && expEmpleado <= 60) {
+//			clasificacionProf = "Especialista";
+//		} else if (edadEmpleado > 35 && expEmpleado > 60) {
+//			clasificacionProf = "Experto";
+//		} else {
+//			clasificacionProf = "Veterano";
+//		}
 		
-		//clasificamos si tiene entre 18 y 35 años 
-		if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado < 12) {
-			clasificacionProf = "Trainee";
-		} else if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado >= 12 && expEmpleado <= 60) {
-			clasificacionProf = "Junior";
-		} else if (edadEmpleado >= 18 && edadEmpleado <= 35 && expEmpleado > 60) {
-			clasificacionProf = "Senior";
-		}
+		//Más correcto, porque evalúa menos condiciones
 		
-		//clasificamos si tiene más de 35 años
-		if (edadEmpleado > 35 && expEmpleado >= 12 && expEmpleado <= 60) {
-			clasificacionProf = "Especialista";
-		} else if (edadEmpleado > 35 && expEmpleado > 60) {
-			clasificacionProf = "Experto";
-		} else {
-			clasificacionProf = "Veterano";
+		if (edadEmpleado < 18) {
+			if (expEmpleado < 12) {
+				clasificacionProf = "Becario Junior";
+			} else {
+				clasificacionProf = "Becario";
+			}
+		} else if (edadEmpleado > 35) {
+			if (expEmpleado > 60) {
+				clasificacionProf = "Experto";
+			} else if (expEmpleado <= 60 && expEmpleado >= 12) {
+				clasificacionProf = "Especialista";
+			} else {
+				clasificacionProf = "Veterano";
+			}
+		} else if (edadEmpleado >=18 && edadEmpleado <= 35) {
+			if (expEmpleado < 12) {
+				clasificacionProf = "Trainee";
+			} else if (expEmpleado >= 12 && expEmpleado <= 60) {
+				clasificacionProf = "Junior";
+			} else if (expEmpleado > 60) {
+				clasificacionProf = "Senior";
+			}
 		}
-		
 		
 		//clasificamos tipos especiales
 		if (sectorEmpleado.equals("TI") && expEmpleado >= 60) {
