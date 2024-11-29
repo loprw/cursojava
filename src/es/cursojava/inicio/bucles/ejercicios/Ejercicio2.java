@@ -15,7 +15,8 @@ public class Ejercicio2 {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		for (int i = 1; i <= 10; i++) {
+		//mejor que vaya de 0 a 9 -10 números-, en vez de 1 a 10 -10 números tb-, para acostumbrarnos a arrays
+		for (int i = 0; i < 10; i++) {
 
 			System.out.println("Pide un número entero:");
 			int num = scan.nextInt();
