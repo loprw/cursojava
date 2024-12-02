@@ -17,8 +17,9 @@ public class Ejercicio4 {
 		int tabla = scan.nextInt();
 		
 		for (int i = 0; i <= tabla; i++) {
+			System.out.println("Tabla del " + i);
 			for (int j = 0; j <= 10; j++) {
-				System.out.println(i + " x " + j + " = " + (i * j));
+				System.out.println("\t" + i + " x " + j + " = " + (i * j));
 			}
 		}
 		

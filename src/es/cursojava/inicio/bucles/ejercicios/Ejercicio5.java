@@ -15,16 +15,17 @@ public class Ejercicio5 {
 		
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Indica el número de alumnos en el aula");
-		double numAlumnos = scan.nextInt();
-		double  notaGlobal = 0;
+		int numAlumnos = scan.nextInt();
+		double  totalNotas = 0;
 		
-		for (int i = 1; i <= numAlumnos; i++) {
+		//Mejor empezar en el 0 y poner < numAlumnos; en vez de i = 1 e i <= numAlumnos
+		//no es necesario declarar una variable local en el for para tomar las notas, podemos sumar a totalNotas el scan
+		for (int i = 0; i < numAlumnos; i++) {
 			System.out.println("Indica la nota del alumno " + i);
-			int nota = scan.nextInt();
-			notaGlobal += nota;
+			totalNotas = scan.nextDouble();
 		}
 		
-		double mediaGlobal = notaGlobal / numAlumnos;
+		double mediaGlobal = totalNotas / numAlumnos;
 		System.out.println("La nota media del aula es "+ mediaGlobal);
 		
 		scan.close();

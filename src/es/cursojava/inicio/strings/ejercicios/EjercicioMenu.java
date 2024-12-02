@@ -68,10 +68,10 @@ public class EjercicioMenu {
 							//Pintamos el primer valor
 							if (j == 0) {
 								System.out.print("*");
-							//"Pintamos" espacio en blanco entre primer y último valor
+							//Pintamos el último valor
 							} else if (j == (tamCuadrado -1) ) {
 								System.out.print("*"); 
-							//Pintamos el último valor
+							//"Pintamos" espacio en blanco entre primer y último valor
 							} else {
 								System.out.print(" ");
 						}
@@ -90,8 +90,11 @@ public class EjercicioMenu {
 				Scanner scan2 = new Scanner(System.in);
 				System.out.println("Indique el email a validar:");
 				String email = scan2.nextLine();
+				
+				//Eliminamos los espacios antes y después del texto, no entre medias del mismo
+				email = email.trim();
 
-				boolean mailValido = true;
+				//Creamos booleanos para cada condición
 				boolean condicion1 = true;
 				boolean condicion2 = true;
 				boolean condicion3 = true;
@@ -157,7 +160,7 @@ public class EjercicioMenu {
 					condicion5 = false;
 				}
 				
-				//Indicamos si el mail es válido o no
+				//Indicamos si el mail es válido o no validando las 5 condiciones
 				if (condicion1 && condicion2 && condicion3 && condicion4 && condicion5) {
 					System.out.println("El email indicado es válido.");
 				} else {

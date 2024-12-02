@@ -20,9 +20,9 @@ public class Ejercicio7 {
 		int num1 = 0;
 		int num2 = 1;
 		int num3 = 0;
-		int i = 2;
+		int i = 1;
 		
-		if (num == 0) {
+		if (num <= 0) {
 			System.out.println("Si no quieres ver ningún número de la Serie de Fibonacci, no haber empezado el programa!");
 		} else if (num == 1) {
 			System.out.println("Vamos a ver el primer " + num + " número de la serie de Fibonacci:");
@@ -36,7 +36,7 @@ public class Ejercicio7 {
 				num1 = num2;
 				num2 = num3;
 				i++;
-			} while (i < (num + 1));
+			} while (i < num);
 		}
 	}
 }

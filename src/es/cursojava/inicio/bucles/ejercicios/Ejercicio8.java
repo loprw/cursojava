@@ -17,19 +17,27 @@ public class Ejercicio8 {
 		System.out.println("Indica la cantidad de tenistas en el torneo:");
 		int numTenistas = scan.nextInt();
 		int posicionATP = 0;
-		int top10 = 0;
+		//Variables mejor con todo texto
+		int topTen = 0;
 		
-		for (int i = 1; i <= numTenistas; i++) {
+		//Es mejor inicializar i en 0 en vez de 1 y la condición dejarla en < en vez de <=
+		//para acostumbranos a trabajar con Strings y arrays, cuya primera posición es siempre 0
+		for (int i = 0; i < numTenistas; i++) {
 
-			System.out.println("Indica la posición ATP del tenista " + i);
+			//para evitar que los valores negativos nos den falsos resultados
+			do {
+			//es i + 1 porque hemos igualado i a 0
+			System.out.println("Indica la posición ATP del tenista " + (i + 1));
 			posicionATP = scan.nextInt();
+			} while (posicionATP <= 0);
+			
 			if (posicionATP <= 10) {
-				top10++;
+				topTen++;
 			}
 		}
 		
 		scan.close();
 		
-		System.out.println("En el torneo hay un total de " + top10 + " tenistas en el top 10 de la ATP.");
+		System.out.println("En el torneo hay un total de " + topTen + " tenistas en el top 10 de la ATP.");
 	}
 }
