@@ -34,9 +34,9 @@ public class EjercicioTriangulo {
 			for (int j = 0; j < altura * 2; j++) {
 
 				if (j == i || i == 0 || j == 2 * altura - i - 1) {
-					System.out.print("*");
+					System.out.print("* ");
 				} else {
-					System.out.print(" ");
+					System.out.print("  ");
 				}
 			}
 		}

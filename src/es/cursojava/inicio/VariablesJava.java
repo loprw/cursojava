@@ -15,7 +15,7 @@ public class VariablesJava {
 		double numeroDecimal = 9.7;
 		float numeroDecimal2 = 20.8f;//si valor puede ser double, da error si no se pone "f" al final	
 		//Caracteres
-		char caracter = ' ';//solo admite un valor, como 1 o e; no dos o más, como 12 o era
+		char caracter = ' ';//solo admite un valor, como 1 o e; no dos o más, como 12 o era, siempre entre comillas simples
 		//Boolean
 		boolean esPar = false;//solo admite como valor true o false
 		
