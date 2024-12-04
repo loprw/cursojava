@@ -15,16 +15,20 @@ public class Ejercicio3 {
 		System.out.println("Escribe un texto:");
 		String texto = scan.nextLine();
 		char caracter;
-		texto = texto.toLowerCase();
+		texto = texto.toLowerCase().trim();
 		int numeroVocales = 0;
 
 		for (int i = 0; i < texto.length(); i++) {
 			caracter = texto.charAt(i);
-			if (caracter == 'a' || caracter == 'e' || caracter == 'i' || caracter == 'o' || caracter == 'u') {
-				numeroVocales++;
+//			if (caracter == 'a' || caracter == 'e' || caracter == 'i' || caracter == 'o' || caracter == 'u') {
+//				numeroVocales++;
+//			}
+			//una manera más eficiente
+			if ("aeiou".indexOf(caracter) != -1) {
+				numeroVocales += 1;
 			}
 		}
 
-		System.out.println("En el texto hay un total de " + numeroVocales + " vocales.");
+		System.out.println("En el texto " + texto + " hay un total de " + numeroVocales + " vocales.");
 	}
 }

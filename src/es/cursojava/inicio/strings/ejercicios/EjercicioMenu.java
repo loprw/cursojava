@@ -96,6 +96,7 @@ public class EjercicioMenu {
 				Scanner scan2 = new Scanner(System.in);
 				System.out.println("Indique el email a validar:");
 				String email = scan2.nextLine();
+				
 
 				// Eliminamos los espacios antes y después del texto, no entre medias del mismo
 				email = email.trim();
@@ -103,23 +104,43 @@ public class EjercicioMenu {
 				//Forma más corta
 				String error = "\n";
 
-				if (!email.contains("@")) {
-					error += "El mail debe contener una @.\n";
-				} 
-				
 				if (email.indexOf("@") != email.lastIndexOf("@")) {
 					error += "El mail solo debe contener una  @.\n";
 				}
+
+				if (!email.contains("@")) {
+					error += "El mail debe contener una @.\n";
+				} else {// no tiene sentido mirar si hay un punto después de @ si el mail no tiene @
+					if (email.indexOf("@") < email.lastIndexOf(".")) {
+						// Una forma más elegante de buscar si después de la @ hay un .
+						error += "Tiene que haber un punto después del a @.\n";
+					} else {
+						String dominio = email.substring(email.indexOf("@") + 1);
+						if (dominio.indexOf(".")  < 2) {
+							error += "Tiene que haber una serparación de dos o más caracteres entre la @ y el primer punto"
+									+ "después de la @.\n";
+						}
+						
+						if (dominio.length() - dominio.lastIndexOf(".") < 2 || dominio.length() - dominio.lastIndexOf(".") > 6) {
+							error += "Después del último punto solo puede haber entre 2 y 6 caracteres.\n";
+						}
+					}
+					
+				}
+
+				if (email.contains(" ") || email.contains("\t")) {
+					error += "Hay un error en el mail, tiene espacio en blanco.\n";
+				}
 				
 				
-				
-				//buscar el índice de una tercera arroba
-				String emailSub = email.substring(email.indexOf("@"), email.lastIndexOf("@"));
-				int indiceTerceraArroba = email.indexOf("@");
-				indiceTerceraArroba += emailSub.indexOf("@");
-				System.out.println("El índice de la tercera @ es " + indiceTerceraArroba);
-				
-				//Otra opción, recorriendo todos los caracteres de la cadena
+
+//				// buscar el índice de una tercera arroba
+//				String emailSub = email.substring(email.indexOf("@"), email.lastIndexOf("@"));
+//				int indiceTerceraArroba = email.indexOf("@");
+//				indiceTerceraArroba += emailSub.indexOf("@");
+//				System.out.println("El índice de la tercera @ es " + indiceTerceraArroba);
+
+				// Otra opción, recorriendo todos los caracteres de la cadena
 //				int contadorArrobas = 0;
 //				for (int i = 0; i < email.length(); i++) {
 //					char caracter = email.charAt(i);
@@ -133,22 +154,13 @@ public class EjercicioMenu {
 //				} else if (contadorArrobas > 1) {
 //					error += "El mail no debe tener más de una @.\n";
 //				}
-				
-				//Una forma más elegante de buscar si después de la @ hay un .
-				if (email.indexOf("@") < email.lastIndexOf(".")) {
-					error += "Tiene que haber un punto después del a @.\n";
-				}
-//				
-				if (email.contains(" ") || email.contains("\t")) {
-					error += "Hay un error en el mail, tiene espacio en blanco.\n";
-				}
-				
+
 				if (error.isBlank()) {
 					System.out.println("El mail es correcto.");
 				} else {
 					System.out.println("El mail es incorrecto por: " + error);
 				}
-				
+
 //				// Creamos booleanos para cada condición
 //				boolean condicion1 = true;
 //				boolean condicion2 = true;
