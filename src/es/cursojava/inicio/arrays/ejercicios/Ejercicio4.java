@@ -29,41 +29,41 @@ public class Ejercicio4 {
 				+ "todas tus vidas. Cada fallo al pedir una letra te quitará una... ¡cuidado! Solo tienes " + vidas + "vidas!");
 		
 
-//		do {
-//			System.out.println("\nLa palabra oculta es\n");
-//			for (String letra : palabraOculta) {
-//				System.out.print(letra);
-//			}
-//
-//			Scanner scan = new Scanner(System.in);
-//			System.out.println("\n\nIndica una letra que creas que pueda estar presente en la palabra misteriosa: ");
-//			String letra = scan.nextLine();
-//			letra = letra.toLowerCase();
-//			boolean contieneLetra = false;
-//			for (int i = 0; i < palabra.length; i++) {
-//				if (palabra[i].contains(letra)) {
-//					contieneLetra = true;
-//				}
-//			}
-//			if (!contieneLetra) {
-//				vidas--;
-//				System.out.println("¡Vaya! La letra " + letra
-//						+ " no está presente.\nPierdes una vida: ¡ya solo te quedan " + vidas + " vidas!");
-//			} else {
-//				for (int j = 0; j < palabra.length; j++) {
-//					if (palabra[j].contains(letra)) {
-//						palabraOculta[j] = letra;
-//					}
-//				}
-//				System.out.println("¡Bien! La letra " + letra + "está presente en la palabra oculta!\n");
-//			}
-//
-//			if (palabraOculta.equals(palabra)) {
-//				System.out.println("¡Enhorabuena! Has logrado descubrir la palabra oculta.");
-//				break;
-//			}
-//
-//		} while (vidas != 0);
+		do {
+			System.out.println("\nLa palabra oculta es\n");
+			for (String letra : palabraOculta) {
+				System.out.print(letra);
+			}
+
+			Scanner scan = new Scanner(System.in);
+			System.out.println("\n\nIndica una letra que creas que pueda estar presente en la palabra misteriosa: ");
+			String letra = scan.nextLine();
+			letra = letra.toLowerCase();
+			boolean contieneLetra = false;
+			for (int i = 0; i < palabra.length; i++) {
+				if (palabra[i].contains(letra)) {
+					contieneLetra = true;
+				}
+			}
+			if (!contieneLetra) {
+				vidas--;
+				System.out.println("¡Vaya! La letra " + letra
+						+ " no está presente.\nPierdes una vida: ¡ya solo te quedan " + vidas + " vidas!");
+			} else {
+				for (int j = 0; j < palabra.length; j++) {
+					if (palabra[j].contains(letra)) {
+						palabraOculta[j] = letra;
+					}
+				}
+				System.out.println("¡Bien! La letra " + letra + "está presente en la palabra oculta!\n");
+			}
+
+			if (palabraOculta.equals(palabra)) {
+				System.out.println("¡Enhorabuena! Has logrado descubrir la palabra oculta.");
+				break;
+			}
+
+		} while (vidas != 0);
 		
 		System.out.println("¡Vaya! No has logrado adivinar la palabra oculta.");
 	}
