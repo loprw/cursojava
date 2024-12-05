@@ -31,8 +31,8 @@ public class Ejercicio4 {
 				palabraMayor = palabra;
 			}
 			texto = texto.substring(indiceEspacio + 1);
-
 		}
+		
 		System.out.println("La palabra más grande que has escrito es " + palabraMayor + ", que tiene un total de " + palabraMayor.length() + " caracteres.");
 	}
 }
