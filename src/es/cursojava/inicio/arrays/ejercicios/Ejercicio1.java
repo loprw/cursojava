@@ -30,8 +30,20 @@ public class Ejercicio1 {
 		}
 		
 		for (String nombre: nombresAlumnos) {
-			if (nombre.startsWith("A")) {
+			if (nombre.toLowerCase().startsWith("A")) {
 				System.out.println(nombre);
+			}
+		}
+		
+		String [] alfabeto = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r",
+				"s", "t", "u", "v", "w", "x", "y", "z"};
+		
+		for (String nombre: nombresAlumnos) {
+			for (String letra: alfabeto) {
+				System.out.println("Nombres que empiezan por la letra " + letra.toUpperCase());
+				if (nombre.toLowerCase().startsWith(letra)) {
+					System.out.println(nombre);
+				}
 			}
 		}
 	}

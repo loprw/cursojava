@@ -36,6 +36,11 @@ public class MetodosString {
 		System.out.println(msg2.isBlank());//true, porque solo tiene espacios en blanco o vacío
 		System.out.println(msg2.isEmpty());//false, pq no está vacío ("").
 		
+		//.split(String), nos devuelve un array de Strings separando por el String indicado, sin indicar el elemento separador
+		String textoOriginal = "rec;ono;cer";
+		System.out.println(textoOriginal.split(";"));
+		System.out.println(textoOriginal.split(""));//con separador String vacío (""), separa cada carácter
+		
 		//.trim(), elimina los espacios en blanco a izq y dcha de un carácter: los elimina desde inicio y final hasta que encuentra
 		//un carácter
 		mensaje = "     Hola qué tal?      ";

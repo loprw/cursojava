@@ -43,5 +43,23 @@ public class Ejercicio2 {
 //		if (esPalindromo) {
 //			System.out.println("Es palíndromo.");
 //		}
+		
+		//Usando arrays
+		
+		String [] datos = texto.split("");
+		boolean esPalindromo = true;
+		
+		for (int i = 0; i < datos.length / 2; i++) {
+			if (!datos[i].equals(datos[datos.length -1 - i])) {
+				esPalindromo = false;
+				break;
+			}
+		}
+		
+		if (esPalindromo) {
+			System.out.println("La palabra es un palíndromo.");
+		} else {
+			System.out.println("La palabra no es un palíndromo.");
+		}
 	}
 }

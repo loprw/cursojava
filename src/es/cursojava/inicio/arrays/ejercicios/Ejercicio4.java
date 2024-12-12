@@ -18,15 +18,16 @@ public class Ejercicio4 {
 
 	public static void main(String[] args) {
 		
-		String[] palabra = {"a", "n", "a", "c", "o", "n", "d", "a"};
+		String[] palabra = {"p", "a", "l", "i", "n", "d", "r", "o", "m", "o"};
 		String[] palabraOculta = new String[palabra.length];
 		for (int i = 0; i < palabraOculta.length; i++) {
 			palabraOculta[i] = "_";
 		}
 		int vidas = 6;
+		boolean palabraAdivinada = false;
 		
 		System.out.println("\nBienvenido al juego del Ahorcado!\n\nDeberas encontrar la palabra misteriosa antes de que pierdas"
-				+ "todas tus vidas. Cada fallo al pedir una letra te quitará una... ¡cuidado! Solo tienes " + vidas + "vidas!");
+				+ "todas tus vidas. Cada fallo al pedir una letra te quitará una... ¡Cuidado, solo tienes " + vidas + " vidas!");
 		
 
 		do {
@@ -40,6 +41,7 @@ public class Ejercicio4 {
 			String letra = scan.nextLine();
 			letra = letra.toLowerCase();
 			boolean contieneLetra = false;
+			
 			for (int i = 0; i < palabra.length; i++) {
 				if (palabra[i].contains(letra)) {
 					contieneLetra = true;
@@ -55,16 +57,29 @@ public class Ejercicio4 {
 						palabraOculta[j] = letra;
 					}
 				}
-				System.out.println("¡Bien! La letra " + letra + "está presente en la palabra oculta!\n");
+				System.out.println("¡Bien! La letra \"" + letra + "\" está presente en la palabra oculta!\n");
 			}
+			
 
-			if (palabraOculta.equals(palabra)) {
-				System.out.println("¡Enhorabuena! Has logrado descubrir la palabra oculta.");
-				break;
-			}
+			if (!palabraAdivinada) {
+				palabraAdivinada = true;
+				for (int j = 0; j < palabra.length; j++) {
+					if (palabra[j].contains(palabraOculta[j])) {
+						continue;
+					} else {
+						palabraAdivinada = false;
+					}
+				}
+			}		
+		} while (vidas != 0 && !palabraAdivinada);
 
-		} while (vidas != 0);
-		
-		System.out.println("¡Vaya! No has logrado adivinar la palabra oculta.");
+		if (vidas == 0) {
+			System.out.println("¡Vaya! No has logrado adivinar la palabra oculta.");
+		} else if (palabraAdivinada) {
+			System.out.print("¡Enhorabuena! Has logrado descubrir la palabra oculta: ");
+		}
+		for (String letra : palabraOculta) {
+			System.out.print(letra);
+		}
 	}
 }
