@@ -11,7 +11,7 @@ Sacar los números de la diagonal
 Invertir la diagonal y mostrar la matriz
  */
  
-public class Ejercicios6 {
+public class Ejercicio6 {
 	
 	public static void main(String[] args) {
 		
