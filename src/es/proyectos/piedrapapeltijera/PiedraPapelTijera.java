@@ -1,8 +1,8 @@
-package es.proyectos.tresenraya;
+package es.proyectos.piedrapapeltijera;
 
 import java.util.Scanner;
 
-public class TresEnRaya {
+public class PiedraPapelTijera {
 
 	public static void main(String[] args) {
 
