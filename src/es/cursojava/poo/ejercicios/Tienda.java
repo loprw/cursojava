@@ -22,7 +22,7 @@ public class Tienda {
 
 	}
 
-	public Maniqui[] abrirTienda() {
+	private Maniqui[] abrirTienda() {
 
 		Boton boton1 = new Boton("rojo", "diminuto", "redonda");
 		Boton boton2 = new Boton("azul", "enorme", "cuadrada");
@@ -44,63 +44,70 @@ public class Tienda {
 		return maniquisTienda;
 	}
 
-	public void mostrarEscaparate(Tienda tienda, Maniqui[] maniquisTienda) {
+	private void mostrarEscaparate(Tienda tienda, Maniqui[] maniquisTienda) {
 
 		int sumaPrecios = 0;
-				System.out.println("El escaparate de la tienda " + tienda.getNombre() + " contiene " + maniquisTienda.length
+		System.out.println("El escaparate de la tienda " + tienda.getNombre() + " contiene " + maniquisTienda.length
 				+ " maniquíes.\n\n");
-		
+
 		for (Maniqui maniqui : maniquisTienda) {
-		
+
 			int sumaPreciosManiqui = 0;
 			System.out.print("El maniquí con id " + maniqui.getId());
-			
+
+			// tb podemos meter maniqui.getPantalon() en una variable para reducir la
+			// longitud del código.
 			if (maniqui.getPantalon() != null) {
 				System.out.print(" tiene un pantalón de color " + maniqui.getPantalon().getColor() + ", "
 						+ maniqui.getPantalon().getPrecio() + "€ de precio y talla " + maniqui.getPantalon().getTalla()
-						+ ". En el pantalón hay 1 botón: \n");
-				System.out.println("\t- El botón es de color " + maniqui.getPantalon().getBoton().getColor()
-						+ ", de tamaño " + maniqui.getPantalon().getBoton().getTamany() + " y forma "
-						+ maniqui.getPantalon().getBoton().getForma() + ".");
-				
+						+ ".\n");
+				if (maniqui.getPantalon().getBoton() != null) {
+					System.out.println("En el pantalón hay 1 botón: \n\t- El botón es de color "
+							+ maniqui.getPantalon().getBoton().getColor() + ", de tamaño "
+							+ maniqui.getPantalon().getBoton().getTamany() + " y forma "
+							+ maniqui.getPantalon().getBoton().getForma() + ".");
+				}
+
 				sumaPreciosManiqui += maniqui.getPantalon().getPrecio();
 			}
-			
+
 			if (maniqui.getCamisa() != null) {
 				System.out.print(" tiene una camisa de color " + maniqui.getCamisa().getColor() + ", "
 						+ maniqui.getCamisa().getPrecio() + "€ de precio y talla " + maniqui.getCamisa().getTalla()
 						+ ". En la camisa hay " + maniqui.getCamisa().getBotones().length + " botones: \n");
-				
+
 				Boton[] botones = maniqui.getCamisa().getBotones();
 				
-				for (int i = 0; i < botones.length; i++) {
-					System.out.println("\t- El botón " + (i + 1) + " es de color " + botones[i].getColor()
-							+ ", de tamaño " + botones[i].getTamany() + " y forma " + botones[i].getForma() + ".");
+				if (botones != null) {
+					for (int i = 0; i < botones.length; i++) {
+						System.out.println("\t- El botón " + (i + 1) + " es de color " + botones[i].getColor()
+								+ ", de tamaño " + botones[i].getTamany() + " y forma " + botones[i].getForma() + ".");
+					}
 				}
-				
+
 				sumaPreciosManiqui += maniqui.getCamisa().getPrecio();
 			}
-			
+
 			if (maniqui.getVestido() != null) {
 				System.out.print(" tiene un vestido de color " + maniqui.getVestido().getColor() + ", "
 						+ maniqui.getVestido().getPrecio() + "€ de precio y talla " + maniqui.getVestido().getTalla()
 						+ ".");
-				
+
 				sumaPreciosManiqui += maniqui.getVestido().getPrecio();
 			}
-			
+
 			if (maniqui.getVestido() == null && maniqui.getCamisa() == null && maniqui.getPantalon() == null) {
 				System.out.print(" no tiene ninguna prenda.");
 			}
 			System.out.println("El coste total de las prendas de este maniquí es " + sumaPreciosManiqui + " euros.\n");
-			
+
 			sumaPrecios += sumaPreciosManiqui;
 		}
-		
+
 		System.out.println("El precio total de la ropa en todos los maniquíes es de " + sumaPrecios + " €.\n");
 	}
 
-	public void cerrarTienda(Maniqui[] maniquisTienda) {
+	private void cerrarTienda(Maniqui[] maniquisTienda) {
 
 		for (Maniqui maniqui : maniquisTienda) {
 			maniqui.desvestir();

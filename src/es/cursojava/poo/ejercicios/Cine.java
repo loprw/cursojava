@@ -32,7 +32,7 @@ public class Cine {
 
 		int contador = 1;
 		for (Sala sala : salas) {
-			System.out.println(contador++ + ".- " + sala.getTituloPelicula());
+			System.out.println("\t" + contador++ + ".- " + sala.getTituloPelicula());
 		}
 	}
 
@@ -48,53 +48,71 @@ public class Cine {
 			mostrarPeliculas();
 			System.out.println("Escoja el número de la película que desee ver. Pulse 0 para salir del menú:");
 			opcion = scan.nextInt();
-			
+
 			switch (opcion) {
-			
+
 			case 0 -> System.out.println("Has salido del menú.");
 			case 1 -> {
-				pedirNumeroEntradas();
+				int numEntradas = getSalas()[0].pedirNumeroEntradas();
+				boolean hayEntradas = getSalas()[0].comprobarButacasLibres(numEntradas);
+
+				if (!hayEntradas) {
+					continue;
+				}
+
+				getSalas()[0].escogerButacas(numEntradas);
+				
+				break;
 			}
 			case 2 -> {
-				pedirNumeroEntradas();
+				int numEntradas = getSalas()[1].pedirNumeroEntradas();
+				boolean hayEntradas = getSalas()[1].comprobarButacasLibres(numEntradas);
+
+				if (!hayEntradas) {
+					continue;
+				}
+
+				getSalas()[1].escogerButacas(numEntradas);
+				
+				break;
 			}
 			case 3 -> {
-				pedirNumeroEntradas();
+				int numEntradas = getSalas()[2].pedirNumeroEntradas();
+				boolean hayEntradas = getSalas()[2].comprobarButacasLibres(numEntradas);
+
+				if (!hayEntradas) {
+					continue;
+				}
+
+				getSalas()[2].escogerButacas(numEntradas);
+				
+				break;
 			}
 			default -> System.out.println("No has elegido una opción correcta.");
 			}
-				
+
 		} while (opcion != OPCION_SALIDA);
 
 	}
-	
-	public int mostrarOcupacion() {
-		
-		int totalButacasVacias = 0;
-		int totalButacas = 0;
-		
-		for (Sala sala:salas) {
-			totalButacasVacias += sala.contarButacasVacias();
-			totalButacas += sala.contarTotalButacas();
+
+	public void mostrarOcupacion() {
+
+		for (Sala sala : salas) {
+			int totalButacasVacias = sala.contarButacasVacias();
+			int totalButacas = sala.contarTotalButacas();
+			
+
+			double ocupacion = (1 - ((double) totalButacasVacias /(double) totalButacas)) * 100;
+			System.out.println("La ocupación de la sala " + sala.getNumero() + " que proyecta la película "
+					+ sala.getTituloPelicula() + ", es del " + ocupacion + "%.");
 		}
-		
-		int ocupacion = (totalButacasVacias / totalButacas) * 100;
-	
-		return ocupacion;
+
 	}
-	
+
 	public void empezarDia() {
-		for (Sala sala:salas) {
+		for (Sala sala : salas) {
 			sala.iniciarDia();
 		}
 	}
-	
-	public int pedirNumeroEntradas() {
-		
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Indica la cantidad de entradas que quieres comprar:");
-		int numeroEntradas = scan.nextInt();
-		
-		return numeroEntradas;
-	}
+
 }

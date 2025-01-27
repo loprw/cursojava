@@ -48,15 +48,9 @@ public class Maniqui {
 	}
 	
 	public void desvestir() {
-		if (getPantalon() != null) {
-			setPantalon(null);
-		}
-		if (getCamisa() != null) {
-			setCamisa(null);
-		}
-		if (getVestido() != null) {
-			setVestido(null);
-		}
+		this.vestido = null;
+		this.pantalon = null;
+		this.camisa = null;
 	}
 	
 }

@@ -14,7 +14,7 @@ public class EjercicioCine {
 		Sala sala3 = new Sala(3, "Desperado", butacas3);
 		
 		Sala[] salas = {sala1, sala2, sala3};
-		Cine cine1 = new Cine("Cuadros Insonorizados Nunca Expuestos", salas);
+		Cine cine1 = new Cine("Cabinas Insonorizadas, Nadie Espoilea", salas);
 		cine1.empezarDia();
 		
 		Espectador espectador1 = new Espectador("Neo", "987654321Z");
@@ -25,6 +25,6 @@ public class EjercicioCine {
 		espectador2.irCine(cine1);
 		espectador3.irCine(cine1);
 		
-		
+		cine1.mostrarOcupacion();
 		}
 }

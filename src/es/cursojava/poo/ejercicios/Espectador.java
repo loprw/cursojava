@@ -29,6 +29,7 @@ public class Espectador {
 	
 	public void irCine(Cine cine) {
 		
+		System.out.println("\nHola " + getNombre() +".\n");
 		cine.mostrarCartelera();
 	}
 }
