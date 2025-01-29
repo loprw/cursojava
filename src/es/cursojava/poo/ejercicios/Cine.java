@@ -36,7 +36,7 @@ public class Cine {
 		}
 	}
 
-	public void mostrarCartelera() {
+	public void mostrarCartelera(Espectador espectador) {
 
 		final int OPCION_SALIDA = 0;
 		int opcion;
@@ -60,7 +60,7 @@ public class Cine {
 					continue;
 				}
 
-				getSalas()[0].escogerButacas(numEntradas);
+				getSalas()[0].escogerButacas(numEntradas, espectador);
 				
 				break;
 			}
@@ -72,7 +72,7 @@ public class Cine {
 					continue;
 				}
 
-				getSalas()[1].escogerButacas(numEntradas);
+				getSalas()[1].escogerButacas(numEntradas, espectador);
 				
 				break;
 			}
@@ -84,7 +84,7 @@ public class Cine {
 					continue;
 				}
 
-				getSalas()[2].escogerButacas(numEntradas);
+				getSalas()[2].escogerButacas(numEntradas, espectador);
 				
 				break;
 			}
@@ -108,11 +108,4 @@ public class Cine {
 		}
 
 	}
-
-	public void empezarDia() {
-		for (Sala sala : salas) {
-			sala.iniciarDia();
-		}
-	}
-
 }

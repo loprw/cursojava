@@ -1,14 +1,14 @@
 package es.cursojava.poo.ejercicios;
 
-import java.util.Scanner;
+import es.cursojava.inicio.funciones.Utilidades;
 
 public class Sala {
 
 	private int numero;
 	private String tituloPelicula;
-	private String[][] butacas;
+	private Espectador[][] butacas;
 
-	public Sala(int numero, String tituloPelicula, String[][] butacas) {
+	public Sala(int numero, String tituloPelicula, Espectador[][] butacas) {
 		this.numero = numero;
 		this.tituloPelicula = tituloPelicula;
 		this.butacas = butacas;
@@ -30,29 +30,24 @@ public class Sala {
 		this.tituloPelicula = tituloPelicula;
 	}
 
-	public String[][] getButacas() {
+	public Espectador[][] getButacas() {
 		return butacas;
 	}
 
-	public void setButacas(String[][] butacas) {
+	public void setButacas(Espectador[][] butacas) {
 		this.butacas = butacas;
-	}
-
-	public void iniciarDia() {
-
-		for (int columna = 0; columna < butacas.length; columna++) {
-			for (int filas = 0; filas < butacas[columna].length; filas++) {
-				butacas[columna][filas] = "\tO";
-			}
-		}
 	}
 
 	public void mostrarButacas() {
 
-		for (String[] columnas : butacas) {
+		for (Espectador[] columnas : butacas) {
 			System.out.println();
-			for (String fila : columnas) {
-				System.out.print(fila);
+			for (Espectador fila : columnas) {
+				if (fila == null) {
+					System.out.print("\tO");
+				} else {
+					System.out.print("\tX");
+				}
 			}
 		}
 	}
@@ -61,10 +56,10 @@ public class Sala {
 
 		int contadorButacasVacias = 0;
 
-		for (String[] columnas : butacas) {
+		for (Espectador[] columnas : butacas) {
 			System.out.println();
-			for (String fila : columnas) {
-				if (fila.equals("\tO")) {
+			for (Espectador fila : columnas) {
+				if (fila == null) {
 					contadorButacasVacias++;
 				}
 			}
@@ -77,7 +72,7 @@ public class Sala {
 
 		int totalButacas = 0;
 
-		for (String[] columnas : butacas) {
+		for (Espectador[] columnas : butacas) {
 			for (int i = 0; i < columnas.length; i++) {
 				totalButacas++;
 			}
@@ -88,9 +83,7 @@ public class Sala {
 
 	public int pedirNumeroEntradas() {
 
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Indique la cantidad de entradas que quieres comprar:");
-		int numeroEntradas = scan.nextInt();
+		int numeroEntradas = Utilidades.pideDatoNumerico("Indique la cantidad de entradas que quieres comprar:");
 
 		return numeroEntradas;
 	}
@@ -111,23 +104,21 @@ public class Sala {
 		return hayEntradas;
 	}
 
-	public void escogerButacas(int numeroEntradas) {
+	public void escogerButacas(int numeroEntradas, Espectador espectador) {
 
-		Scanner scan = new Scanner(System.in);
-		System.out.println("¿Desea escoger las butacas? s/n");
-		String escogeButacas = scan.nextLine();
+		String escogeButacas = Utilidades.pideDatoCadena("¿Desea escoger las butacas? s/n");
 		int numButacas = numeroEntradas;
 
 		if (escogeButacas.equals("s") || escogeButacas.equals("S")) {
 			mostrarButacas();
 
 			for (int i = 0; i < numeroEntradas; i++) {
-				System.out.println("\n\nEscoja la fila de butacas para la entrada " + (i + 1) + ":");
-				int numFila = scan.nextInt();
-				System.out.println(
-						"Escoja la butaca para la entrada" + (i + 1) + " (de izquierda a derecha, empezando por la 1):");
-				int numButaca = scan.nextInt();
-				
+
+				int numFila = Utilidades
+						.pideDatoNumerico("\n\nEscoja la fila de butacas para la entrada " + (i + 1) + ":");
+				int numButaca = Utilidades.pideDatoNumerico("Escoja la butaca para la entrada" + (i + 1)
+						+ " (de izquierda a derecha, empezando por la 1):");
+
 				if (numButaca > butacas.length) {
 					System.out.println("Has escogido una butaca incorrecta.");
 					i--;
@@ -135,7 +126,7 @@ public class Sala {
 				} else {
 					numButaca--;
 				}
-				
+
 				if (numFila > butacas[numButaca].length) {
 					System.out.println("Has escogido una fila incorrecta.");
 					i--;
@@ -143,34 +134,50 @@ public class Sala {
 				} else {
 					numFila--;
 				}
-				
-				if (butacas[numButaca][numFila].equals("\tO")) {
-					butacas[numButaca][numFila] = "\tX";
+
+				if (butacas[numButaca][numFila] == null) {
+					butacas[numButaca][numFila] = espectador;
 				} else {
 					System.out.println("Butaca ocupada, escoja otra");
 					i--;
 				}
 
 			}
-			
+
 			System.out.println("Ha escogido todas las butacas.\n");
 
 		} else if (escogeButacas.equals("n") || escogeButacas.equals("N")) {
-			for (int columna = 0; columna < butacas.length; columna++) {
-				for (int fila = 0; fila < butacas[columna].length; fila++) {
-					if (butacas[columna][fila].equals("\tO")) {
-						butacas[columna][fila] = "\tX";
+
+			do {
+				int numFila = Utilidades.pideDatoNumerico("Indique la fila de butacas donde desea sentarse:");
+
+				for (int columna = 0; columna < butacas.length; columna++) {
+					if (butacas[columna][numFila] == null) {
+						butacas[columna][numFila] = espectador;
 						numButacas--;
 					}
-					if (numButacas == 0) {
-						System.out.println("Se han seleccionado todas las butacas.\n");
-						break;
-					}
 				}
-			}
+				if (numButacas != 0) {
+					System.out.println("Se han escogido todas las butacas de la fila " + (numFila + 1)
+							+ ", pero aún quedan entradas sin butaca asignada.");
+				}
+			} while (numButacas != 0);
+
+//			for (int columna = 0; columna < butacas.length; columna++) {
+//				for (int fila = 0; fila < butacas[columna].length; fila++) {
+//					if (butacas[columna][fila] == null) {
+//						butacas[columna][fila] = espectador;
+//						numButacas--;
+//					}
+//					if (numButacas == 0) {
+//						System.out.println("Se han escogido todas las butacas.\n");
+//						break;
+//					}
+//				}
+//			}
 		} else {
 			System.out.println("No ha escogido una opción válida:");
-			escogerButacas(numeroEntradas);
+			escogerButacas(numeroEntradas, espectador);
 		}
 	}
 }
