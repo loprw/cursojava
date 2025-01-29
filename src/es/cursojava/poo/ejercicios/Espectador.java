@@ -27,9 +27,9 @@ public class Espectador {
 		this.dni = dni;
 	}
 	
-	public void irCine(Cine cine, Espectador espectador) {
+	public void irCine(Cine cine) {
 		
 		System.out.println("\nHola " + getNombre() +".\n");
-		cine.mostrarCartelera(espectador);
+		cine.procesarEntradas(this);
 	}
 }

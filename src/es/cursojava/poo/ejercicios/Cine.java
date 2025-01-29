@@ -1,6 +1,6 @@
 package es.cursojava.poo.ejercicios;
 
-import java.util.Scanner;
+import es.cursojava.inicio.funciones.Utilidades;
 
 public class Cine {
 
@@ -30,64 +30,40 @@ public class Cine {
 
 	public void mostrarPeliculas() {
 
-		int contador = 1;
 		for (Sala sala : salas) {
-			System.out.println("\t" + contador++ + ".- " + sala.getTituloPelicula());
+			System.out.println("\t" + sala.getNumero() + ".- " + sala.getTituloPelicula());
 		}
 	}
 
-	public void mostrarCartelera(Espectador espectador) {
+	public void procesarEntradas(Espectador espectador) {
 
 		final int OPCION_SALIDA = 0;
 		int opcion;
-		Scanner scan = new Scanner(System.in);
 
 		do {
 			System.out.println("Bienvenido a " + getNombre()
 					+ ", tu cine de confianza. Estas son las películas en nuestra cartelera:");
 			mostrarPeliculas();
-			System.out.println("Escoja el número de la película que desee ver. Pulse 0 para salir del menú:");
-			opcion = scan.nextInt();
+			opcion = Utilidades.pideDatoNumerico("Escoja el número de la película que desee ver. Pulse 0 para salir del menú:");
+			int numSala = opcion - 1;
 
 			switch (opcion) {
 
 			case 0 -> System.out.println("Has salido del menú.");
-			case 1 -> {
-				int numEntradas = getSalas()[0].pedirNumeroEntradas();
-				boolean hayEntradas = getSalas()[0].comprobarButacasLibres(numEntradas);
+			case 1, 2, 3  -> {
+				
+				int numEntradas = getSalas()[numSala].pedirNumeroEntradas();
+				boolean hayEntradas = getSalas()[numSala].comprobarButacasLibres(numEntradas);
 
 				if (!hayEntradas) {
 					continue;
 				}
 
-				getSalas()[0].escogerButacas(numEntradas, espectador);
+				getSalas()[numSala].escogerButacas(numEntradas, espectador);
 				
 				break;
 			}
-			case 2 -> {
-				int numEntradas = getSalas()[1].pedirNumeroEntradas();
-				boolean hayEntradas = getSalas()[1].comprobarButacasLibres(numEntradas);
-
-				if (!hayEntradas) {
-					continue;
-				}
-
-				getSalas()[1].escogerButacas(numEntradas, espectador);
-				
-				break;
-			}
-			case 3 -> {
-				int numEntradas = getSalas()[2].pedirNumeroEntradas();
-				boolean hayEntradas = getSalas()[2].comprobarButacasLibres(numEntradas);
-
-				if (!hayEntradas) {
-					continue;
-				}
-
-				getSalas()[2].escogerButacas(numEntradas, espectador);
-				
-				break;
-			}
+			
 			default -> System.out.println("No has elegido una opción correcta.");
 			}
 
