@@ -40,15 +40,16 @@ public class Sala {
 
 	public void mostrarButacas() {
 
-		for (Espectador[] columnas : butacas) {
-			System.out.println();
-			for (Espectador fila : columnas) {
-				if (fila == null) {
+		for (Espectador[] filas : butacas) {
+			for (int i = 0; i < filas.length; i++) {
+				System.out.println("Fila " + (i + 1));
+				if (filas[i] == null) {
 					System.out.print("\tO");
 				} else {
 					System.out.print("\tX");
 				}
 			}
+			System.out.println();
 		}
 	}
 
@@ -81,11 +82,18 @@ public class Sala {
 		return totalButacas;
 	}
 
-	public int pedirNumeroEntradas() {
+	public void mostrarEspectadoresSala() {
 
-		int numeroEntradas = Utilidades.pideDatoNumerico("Indique la cantidad de entradas que quieres comprar:");
-
-		return numeroEntradas;
+		for (int i = 0; i < butacas.length; i++) {
+			for (int j = 0; j < butacas[i].length; j++) {
+				Espectador[][] espectador = getButacas();
+				System.out.println();
+				if (butacas[i][j] != null) {
+					System.out.println("/tLa butaca " + (j + 1) + " en la fila " + (i + 1) + "está reservada por "
+							+ espectador[i][j].getNombre() + ",con DNI " + espectador[i][j].getDni() + ".");
+				}
+			}
+		}
 	}
 
 	public boolean comprobarButacasLibres(int numEntradas) {
@@ -116,27 +124,27 @@ public class Sala {
 
 				int numFila = Utilidades
 						.pideDatoNumerico("\n\nEscoja la fila de butacas para la entrada " + (i + 1) + ":");
-				int numButaca = Utilidades.pideDatoNumerico("Escoja la butaca para la entrada" + (i + 1)
-						+ " (de izquierda a derecha, empezando por la 1):");
-
-				if (numButaca > butacas.length) {
+				if (numFila > butacas.length || numFila <= 0) {
 					System.out.println("Has escogido una butaca incorrecta.");
-					i--;
-					continue;
-				} else {
-					numButaca--;
-				}
-
-				if (numFila > butacas[numButaca].length) {
-					System.out.println("Has escogido una fila incorrecta.");
 					i--;
 					continue;
 				} else {
 					numFila--;
 				}
 
-				if (butacas[numButaca][numFila] == null) {
-					butacas[numButaca][numFila] = espectador;
+				int numButaca = Utilidades.pideDatoNumerico("Escoja la butaca para la entrada" + (i + 1)
+						+ " (de izquierda a derecha, empezando por la 1):");
+
+				if (numButaca > butacas[numFila].length || numButaca <= 0) {
+					System.out.println("Has escogido una fila incorrecta.");
+					i--;
+					continue;
+				} else {
+					numButaca--;
+				}
+
+				if (butacas[numFila][numButaca] == null) {
+					butacas[numFila][numButaca] = espectador;
 				} else {
 					System.out.println("Butaca ocupada, escoja otra");
 					i--;
@@ -144,7 +152,7 @@ public class Sala {
 
 			}
 
-			System.out.println("Ha escogido todas las butacas.\n");
+			System.out.println("\nHa escogido todas las butacas.\n");
 
 		} else if (escogeButacas.equals("n") || escogeButacas.equals("N")) {
 
@@ -152,14 +160,22 @@ public class Sala {
 				int numFila = Utilidades.pideDatoNumerico("Indique la fila de butacas donde desea sentarse:");
 
 				for (int columna = 0; columna < butacas.length; columna++) {
-					if (butacas[columna][numFila] == null) {
-						butacas[columna][numFila] = espectador;
-						numButacas--;
+					if (numFila > butacas[columna].length || numFila <= 0) {
+						System.out.println("Ha escogido una fila incorrecta");
+						columna--;
+						continue;
+					} else {
+						if (butacas[columna][numFila] == null) {
+							butacas[columna][numFila] = espectador;
+							numButacas--;
+						}
 					}
 				}
 				if (numButacas != 0) {
 					System.out.println("Se han escogido todas las butacas de la fila " + (numFila + 1)
-							+ ", pero aún quedan entradas sin butaca asignada.");
+							+ ", pero aún quedan " + numButacas + "entradas sin butaca asignada.");
+				} else {
+					System.out.println("\nSe han escogido todas las butacas.\n");
 				}
 			} while (numButacas != 0);
 

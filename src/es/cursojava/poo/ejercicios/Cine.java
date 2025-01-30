@@ -52,7 +52,7 @@ public class Cine {
 			case 0 -> System.out.println("Has salido del menú.");
 			case 1, 2, 3  -> {
 				
-				int numEntradas = getSalas()[numSala].pedirNumeroEntradas();
+				int numEntradas = Utilidades.pideDatoNumerico("Indique la cantidad de entradas que quieres comprar:");
 				boolean hayEntradas = getSalas()[numSala].comprobarButacasLibres(numEntradas);
 
 				if (!hayEntradas) {
@@ -74,6 +74,7 @@ public class Cine {
 	public void mostrarOcupacion() {
 
 		for (Sala sala : salas) {
+
 			int totalButacasVacias = sala.contarButacasVacias();
 			int totalButacas = sala.contarTotalButacas();
 			
@@ -81,6 +82,8 @@ public class Cine {
 			double ocupacion = (1 - ((double) totalButacasVacias /(double) totalButacas)) * 100;
 			System.out.println("La ocupación de la sala " + sala.getNumero() + " que proyecta la película "
 					+ sala.getTituloPelicula() + ", es del " + ocupacion + "%.");
+			
+			sala.mostrarEspectadoresSala();
 		}
 
 	}
