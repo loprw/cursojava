@@ -9,5 +9,19 @@ public class Leon extends Animal {
 		super(nombre, peso);
 		this.tieneMelena = tieneMelena;
 	}
+	
+    public void cazar(){
+        System.out.println("El leon "+ this.getNombre() +" está cazando");
+    }
+
+    
+    //Override (sobreescritura) ampliando funcionalidad.
+	@Override
+	public void comer() {
+		super.comer();
+		System.out.println("Ferozmente");
+	}
+
+    
 
 }
