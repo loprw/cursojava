@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.maniqui;
 
 public class Tienda {
 

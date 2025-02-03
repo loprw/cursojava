@@ -1,12 +1,10 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.maniqui;
 
-public class Pantalon extends Prenda{
-
+public class Pantalon extends Prenda {
 
 	private Boton boton;
 	
 	public Pantalon(String color, double precio, String talla, Boton boton) {
-
 		super(color, precio, talla);
 		this.boton = boton;
 	}

@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.garaje;
 
 public class Vehiculo {
 
@@ -66,5 +66,44 @@ public class Vehiculo {
 		System.out.println("\tVelocidad Máxima: " + this.velocidadMaxima);
 		System.out.println("\tTipo de combustible: " + this.tipo);
 		
+	}
+	
+	public double calcularImpuesto() {
+		
+		double impuesto = 200;
+		double modificadorAny = 0;
+		double modificadorTipo = 0;
+		double modificadorClase = 0;
+		
+		if (2025 - getAny() >= 20) {
+			modificadorAny = impuesto * 0.1;
+		} else if (2025 - getAny() >= 10) {
+			modificadorAny = impuesto * 0.05;
+		} else {
+			modificadorAny = 0;
+		}
+		
+		switch (getTipo()) {
+			case "Gasolina", "Diesel" -> modificadorTipo = impuesto *  0.1;
+			case "Híbrido" -> modificadorTipo = -(impuesto * 0.05);
+			case "Eléctrico" -> modificadorTipo = -(impuesto * 0.1);
+			default -> modificadorTipo = 0;
+		}
+		
+		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Camion")) {
+			modificadorClase = impuesto * 0.1;
+		}
+		
+		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Coche")) {
+			modificadorClase = impuesto * 0.05;
+		}
+		
+		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Motocicleta")) {
+			modificadorClase = -(impuesto * 0.05);
+		}
+		
+		impuesto = impuesto + modificadorAny + modificadorTipo + modificadorClase;
+		
+		return impuesto;
 	}
 }

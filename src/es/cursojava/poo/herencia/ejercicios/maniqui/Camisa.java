@@ -1,6 +1,6 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.maniqui;
 
-public class Camisa extends Prenda{
+public class Camisa extends Prenda {
 
 	private Boton[] botones;
 	

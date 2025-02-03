@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.garaje;
 
 public class Camion extends Vehiculo {
 

@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.bandamusica;
 
 public class BandaMusica {
 
@@ -40,16 +40,25 @@ public class BandaMusica {
 		boolean suenaBien = true;
 		
 		for (int i = 0; i < instrumentosBanda.length; i++) {
-			if (!instrumentosBanda[i].getClass().getName().equals("Tambor")) {
-				instrumentosBanda[i].tocar();				
-			} else {
+			
+			if (instrumentosBanda[i] instanceof Tambor) {
 				Tambor instrumentoTambor = (Tambor) instrumentosBanda[i];
 				instrumentoTambor.aporrear();
+			} else {
+				instrumentosBanda[i].tocar();	
 			}
 			
-			if (!instrumentosBanda[i].getAfinado()) {
-				suenaBien = false;				
-			}
+//			La manera de arriba es mejor que esta
+//			if (!instrumentosBanda[i].getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Tambor")) {
+//				instrumentosBanda[i].tocar();				
+//			} else {
+//				Tambor instrumentoTambor = (Tambor) instrumentosBanda[i];
+//				instrumentoTambor.aporrear();
+//			}
+//			
+//			if (!instrumentosBanda[i].isAfinado()) {
+//				suenaBien = false;				
+//			}
 		}
 		
 		if (!suenaBien) {

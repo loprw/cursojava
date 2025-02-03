@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.bandamusica;
 
 public class Tambor extends Instrumento{
 

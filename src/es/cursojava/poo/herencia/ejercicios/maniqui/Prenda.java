@@ -1,4 +1,4 @@
-package es.cursojava.poo.herencia.ejercicios;
+package es.cursojava.poo.herencia.ejercicios.maniqui;
 
 public class Prenda {
 
@@ -7,7 +7,6 @@ public class Prenda {
 	private String talla;
 	
 	public Prenda(String color, double precio, String talla) {
-		super();
 		this.color = color;
 		this.precio = precio;
 		this.talla = talla;
@@ -36,4 +35,6 @@ public class Prenda {
 	public void setTalla(String talla) {
 		this.talla = talla;
 	}
+	
+
 }
