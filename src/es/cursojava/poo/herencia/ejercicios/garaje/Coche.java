@@ -29,12 +29,16 @@ public class Coche extends Vehiculo {
 	}
 
 	@Override
-	public void mostrarInformacion() {
-		super.mostrarInformacion();
-		System.out.println("\tNúmero de puertas: " + this.numeroPuertas);
-		System.out.println("\t¿Tiene aire acondiconado?: " + (getTieneAireAcondicionado()?"Sí":"No"));
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Coche [");
+		builder.append(super.toString());
+		builder.append("\n\tnumeroPuertas=");
+		builder.append(numeroPuertas);
+		builder.append("\n\ttieneAireAcondicionado=");
+		builder.append(tieneAireAcondicionado);
+
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-	
 }

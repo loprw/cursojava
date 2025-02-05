@@ -1,5 +1,7 @@
 package es.cursojava.poo.herencia.ejercicios.garaje;
 
+import java.time.LocalDate;
+
 public class Vehiculo {
 
 	private String marca;
@@ -57,52 +59,59 @@ public class Vehiculo {
 		this.tipo = tipo;
 	}
 	
+
+	
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("\n\tmarca=");
+		builder.append(marca);
+		builder.append("\n\tmodelo=");
+		builder.append(modelo);
+		builder.append("\n\taño=");
+		builder.append(any);
+		builder.append("\n\tvelocidadMaxima=");
+		builder.append(velocidadMaxima);
+		builder.append("\n\ttipo=");
+		builder.append(tipo);
+
+		return builder.toString();
+	}
+
 	public void mostrarInformacion() {
 		
-		System.out.println("Los datos del vehículo son:");
-		System.out.println("\tMarca: " + this.marca);
-		System.out.println("\tModelo: " + this.modelo);
-		System.out.println("\tAño: " + this.any);
-		System.out.println("\tVelocidad Máxima: " + this.velocidadMaxima);
-		System.out.println("\tTipo de combustible: " + this.tipo);
+		System.out.println(toString());
 		
 	}
 	
 	public double calcularImpuesto() {
 		
-		double impuesto = 200;
-		double modificadorAny = 0;
-		double modificadorTipo = 0;
-		double modificadorClase = 0;
+		double impuestoBase = 200;
+		double impuesto = 1;
+		int anyActual = LocalDate.now().getYear();
 		
-		if (2025 - getAny() >= 20) {
-			modificadorAny = impuesto * 0.1;
-		} else if (2025 - getAny() >= 10) {
-			modificadorAny = impuesto * 0.05;
-		} else {
-			modificadorAny = 0;
+		if (anyActual >= 20) {
+			impuesto += 0.1;
+		} else if (anyActual >= 10) {
+			impuesto += 0.05;
 		}
 		
 		switch (getTipo()) {
-			case "Gasolina", "Diesel" -> modificadorTipo = impuesto *  0.1;
-			case "Híbrido" -> modificadorTipo = -(impuesto * 0.05);
-			case "Eléctrico" -> modificadorTipo = -(impuesto * 0.1);
-			default -> modificadorTipo = 0;
+			case "Gasolina", "Diesel" -> impuesto += 0.1;
+			case "Híbrido" -> impuesto -= 0.05;
+			case "Eléctrico" -> impuesto -= 0.1;
+			default -> impuesto += 0;
 		}
 		
-		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Camion")) {
-			modificadorClase = impuesto * 0.1;
+		if (this instanceof Camion) {
+			impuesto += 0.1;
+		} else if (this instanceof Coche) {
+			impuesto += 0.05;
+		} else if (this instanceof Motocicleta) {
+			impuesto -= 0.05;
 		}
 		
-		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Coche")) {
-			modificadorClase = impuesto * 0.05;
-		}
-		
-		if (this.getClass().getName().equals("es.cursojava.poo.herencia.ejercicios.Motocicleta")) {
-			modificadorClase = -(impuesto * 0.05);
-		}
-		
-		impuesto = impuesto + modificadorAny + modificadorTipo + modificadorClase;
+		impuesto *= impuestoBase;
 		
 		return impuesto;
 	}

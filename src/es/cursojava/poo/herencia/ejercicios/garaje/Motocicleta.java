@@ -30,15 +30,15 @@ public class Motocicleta extends Vehiculo {
 	}
 
 	@Override
-	public void mostrarInformacion() {
-		
-		super.mostrarInformacion();
-		System.out.println("\t¿Tiene sidecar?: " + (getTieneSidecar()?"Sí":"No"));
-		System.out.println("\tCilindrada: " + this.cilindrada);
-		
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Motocicleta [");
+		builder.append(super.toString());
+		builder.append("\n\ttieneSidecar=");
+		builder.append(tieneSidecar);
+		builder.append("\n\tcilindrada=");
+		builder.append(cilindrada);
+		builder.append("]");
+		return builder.toString();
 	}
-	
-	
-	
-
 }

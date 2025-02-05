@@ -8,7 +8,22 @@ public class EjecutarVehiculos {
 		Vehiculo[] vehiculos = vehiculo.crearVehiculos();
 		vehiculo.pintarInformacion(vehiculos);
 		vehiculo.obtenerImpuestos(vehiculos);
+		
 
+	}
+	
+	public Garaje crearGaraje() {
+		
+		Coche[] plazasCoche = new Coche[3];
+		Camion[] plazasCamion = new Camion[2];
+		Motocicleta[] plazasMoto = new Motocicleta[3]; 
+		PlantaGaraje planta1 = new PlantaGaraje(1, plazasCoche);
+		PlantaGaraje planta2 = new PlantaGaraje(2, plazasCamion);
+		PlantaGaraje planta3 = new PlantaGaraje(3, plazasMoto);
+		PlantaGaraje[] plantas = {planta1, planta2, planta3};
+		Garaje garaje = new Garaje("Garaje de tus Sueños", plantas);
+		
+		return garaje;
 	}
 
 	public Vehiculo[] crearVehiculos() {

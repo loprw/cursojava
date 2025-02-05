@@ -30,11 +30,17 @@ public class Camion extends Vehiculo {
 	}
 
 	@Override
-	public void mostrarInformacion() {
-
-		super.mostrarInformacion();
-		System.out.println("\tCapacidad de Carga: " + this.capacidadCarga);
-		System.out.println("\tNúmero de ejes: " + this.numeroEjes);
-		
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Camion [");
+		builder.append(super.toString());
+		builder.append("\n\tcapacidadCarga=");
+		builder.append(capacidadCarga);
+		builder.append("\n\tnumeroEjes=");
+		builder.append(numeroEjes);
+		builder.append("]");
+		return builder.toString();
 	}
+	
+	
 }
