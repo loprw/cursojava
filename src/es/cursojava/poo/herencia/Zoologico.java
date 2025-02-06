@@ -21,7 +21,7 @@ public class Zoologico {
 	        vaca1.comer();
 	        //vaca1.mugir();//No se puede la clase Animal no tiene el mugir
 
-	        Animal leon1 = new Leon("Asdas",9, true);
+	        //Animal leon1 = new Leon("Asdas",9, true);
 
 	        Vaca vaca2 = (Vaca)vaca1;
 	        vaca2.mugir();

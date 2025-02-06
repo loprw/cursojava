@@ -8,8 +8,8 @@ public class EjecutarVehiculos {
 		Vehiculo[] vehiculos = vehiculo.crearVehiculos();
 		vehiculo.pintarInformacion(vehiculos);
 		vehiculo.obtenerImpuestos(vehiculos);
-		
-
+		Garaje garaje = vehiculo.crearGaraje();
+		garaje.aparcar(vehiculos);
 	}
 	
 	public Garaje crearGaraje() {
@@ -22,6 +22,7 @@ public class EjecutarVehiculos {
 		PlantaGaraje planta3 = new PlantaGaraje(3, plazasMoto);
 		PlantaGaraje[] plantas = {planta1, planta2, planta3};
 		Garaje garaje = new Garaje("Garaje de tus Sueños", plantas);
+		System.out.println("Bienvenido a " + garaje.getNombre() + ".\n");
 		
 		return garaje;
 	}

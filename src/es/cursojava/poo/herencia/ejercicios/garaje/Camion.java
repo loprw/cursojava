@@ -1,6 +1,6 @@
 package es.cursojava.poo.herencia.ejercicios.garaje;
 
-public class Camion extends Vehiculo {
+public class Camion extends VehiculoMotorizado {
 
 	private double capacidadCarga;
 	private int numeroEjes;
@@ -41,6 +41,9 @@ public class Camion extends Vehiculo {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
+	@Override
+	public void acelerar() {
+	}
 	
 }

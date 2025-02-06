@@ -2,7 +2,7 @@ package es.cursojava.poo.herencia.ejercicios.garaje;
 
 import java.time.LocalDate;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
 	private String marca;
 	private String modelo;
@@ -115,4 +115,6 @@ public class Vehiculo {
 		
 		return impuesto;
 	}
+	
+	public abstract void acelerar();
 }

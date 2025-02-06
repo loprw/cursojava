@@ -10,7 +10,16 @@ public class Leon extends Animal {
 		this.tieneMelena = tieneMelena;
 	}
 	
-    public void cazar(){
+		
+    public boolean isTieneMelena() {
+		return tieneMelena;
+	}
+
+	public void setTieneMelena(boolean tieneMelena) {
+		this.tieneMelena = tieneMelena;
+	}
+
+	public void cazar(){
         System.out.println("El leon "+ this.getNombre() +" está cazando");
     }
 

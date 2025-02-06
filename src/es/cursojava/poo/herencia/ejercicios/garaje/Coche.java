@@ -1,6 +1,6 @@
 package es.cursojava.poo.herencia.ejercicios.garaje;
 
-public class Coche extends Vehiculo {
+public class Coche extends VehiculoMotorizado {
 
 	private int numeroPuertas;
 	private boolean tieneAireAcondicionado;
@@ -41,4 +41,9 @@ public class Coche extends Vehiculo {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public void acelerar() {
+	}
+	
 }

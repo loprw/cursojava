@@ -40,21 +40,19 @@ public class Garaje {
 		}
 
 		for (Vehiculo vehiculo : vehiculos) {
+			boolean aparcado = false;
+			
 			if (vehiculo instanceof Coche) {
 				if (plazasCoche != 0) {
 					plazasCoche--;
 					System.out.println("Se ha aparcado el " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ".");
-				} else {
-					System.out
-							.println("El " + vehiculo.getMarca() + " " + vehiculo.getModelo() + " no se ha aparcado.");
+					aparcado = true;
 				}
 			} else if (vehiculo instanceof Camion) {
 				if (plazasCamion != 0) {
 					plazasCamion--;
 					System.out.println("Se ha aparcado el " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ".");
-				} else {
-					System.out
-							.println("El " + vehiculo.getMarca() + " " + vehiculo.getModelo() + " no se ha aparcado.");
+					aparcado = true;
 				}
 			} else if (vehiculo instanceof Motocicleta) {
 				Motocicleta moto = (Motocicleta) vehiculo;
@@ -63,15 +61,18 @@ public class Garaje {
 						plazasMoto--;
 						System.out
 								.println("Se ha aparcado la " + vehiculo.getMarca() + " " + vehiculo.getModelo() + ".");
-					} else {
-						System.out.println(
-								"La " + vehiculo.getMarca() + " " + vehiculo.getModelo() + " no se ha aparcado.");
+						aparcado = true;
 					}
 				} else {
-					System.out.println("LA " + vehiculo.getMarca() + " " + vehiculo.getModelo()
+					System.out.println("La " + vehiculo.getMarca() + " " + vehiculo.getModelo()
 							+ " no se ha aparcado porque tiene sidecar.");
 				}
 
+			}
+			
+			if (!aparcado) {
+				System.out.println("El vehículo " + vehiculo.getMarca() + " " + vehiculo.getModelo()
+				+ " no se ha aparcado porque no tiene hueco.");
 			}
 		}
 	}

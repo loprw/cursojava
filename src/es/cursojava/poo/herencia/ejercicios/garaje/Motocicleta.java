@@ -1,6 +1,6 @@
 package es.cursojava.poo.herencia.ejercicios.garaje;
 
-public class Motocicleta extends Vehiculo {
+public class Motocicleta extends VehiculoMotorizado {
 
 	private boolean tieneSidecar;
 	private int cilindrada;
@@ -41,4 +41,8 @@ public class Motocicleta extends Vehiculo {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public void acelerar() {
+	}	
 }
