@@ -21,6 +21,7 @@
 				<version>3.8.1</version>
 				<configuration>
 					<release>17</release>
+					<encoding>ISO 8859-1</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
