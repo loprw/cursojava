@@ -5,9 +5,9 @@ public class Coche extends VehiculoMotorizado {
 	private int numeroPuertas;
 	private boolean tieneAireAcondicionado;
 
-	public Coche(String marca, String modelo, int any, int velocidadMaxima, String tipo, int numeroPuertas,
+	public Coche(String marca, String modelo, int any, int velocidadMaxima, String tipo, String motor, int numeroPuertas,
 			boolean tieneAireAcondicionado) {
-		super(marca, modelo, any, velocidadMaxima, tipo);
+		super(marca, modelo, any, velocidadMaxima, tipo, motor);
 		this.numeroPuertas = numeroPuertas;
 		this.tieneAireAcondicionado = tieneAireAcondicionado;
 	}
@@ -44,6 +44,16 @@ public class Coche extends VehiculoMotorizado {
 
 	@Override
 	public void acelerar() {
+	}
+
+	@Override
+	public void encender() {
+		System.out.println(getModelo() + " " + getMarca() + " está encendido.");
+	}
+
+	@Override
+	public void apagar() {
+		System.out.println(getModelo() + " " + getMarca() + " está apagado.");
 	}
 	
 }

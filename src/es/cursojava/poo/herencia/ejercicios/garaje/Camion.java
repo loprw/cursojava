@@ -5,9 +5,9 @@ public class Camion extends VehiculoMotorizado {
 	private double capacidadCarga;
 	private int numeroEjes;
 
-	public Camion(String marca, String modelo, int any, int velocidadMaxima, String tipo, double capacidadCarga,
+	public Camion(String marca, String modelo, int any, int velocidadMaxima, String tipo, String motor, double capacidadCarga,
 			int numeroEjes) {
-		super(marca, modelo, any, velocidadMaxima, tipo);
+		super(marca, modelo, any, velocidadMaxima, tipo, motor);
 		this.capacidadCarga = capacidadCarga;
 		this.numeroEjes = numeroEjes;
 
@@ -45,5 +45,15 @@ public class Camion extends VehiculoMotorizado {
 	@Override
 	public void acelerar() {
 	}
+
+	@Override
+	public void encender() {
+	}
+
+	@Override
+	public void apagar() {
+	}
+	
+	
 	
 }
