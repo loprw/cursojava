@@ -1,9 +1,10 @@
 package es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable;
 
+import es.cursojava.poo.herencia.interfaces.ejercicios.cuid.Insertable;
 import lombok.Getter;
 import lombok.Setter;
 
-public abstract class Alimento extends Producto {
+public abstract class Alimento extends Producto implements Insertable {
 
 	@Getter
 	@Setter

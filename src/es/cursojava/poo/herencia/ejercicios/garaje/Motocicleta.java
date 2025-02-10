@@ -52,5 +52,25 @@ public class Motocicleta extends VehiculoMotorizado {
 
 	@Override
 	public void encender() {
-	}	
+	}
+
+	@Override
+	public void delete() {
+		System.out.println("Borrando " + getMarca() + " " + getModelo());	
+	}
+
+	@Override
+	public void update() {
+		System.out.println("Actualizando " + getMarca() + " " + getModelo());
+	}
+
+	@Override
+	public void select() {
+		System.out.println("Consultando " + getMarca() + " " + getModelo());	
+	}
+
+	@Override
+	public void insert() {
+		System.out.println("Insertando en " + getMarca() + " " + getModelo());
+	}
 }

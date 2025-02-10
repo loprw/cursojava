@@ -1,9 +1,10 @@
 package es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable;
 
+import es.cursojava.poo.herencia.interfaces.ejercicios.cuid.Deletable;
 import lombok.Getter;
 import lombok.Setter;
 
-public abstract class ProductoElectronico extends Producto implements Apagable, Encendible {
+public abstract class ProductoElectronico extends Producto implements Apagable, Encendible, Deletable {
 
 	@Getter
 	@Setter

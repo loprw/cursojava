@@ -1,9 +1,10 @@
 package es.cursojava.poo.herencia.ejercicios.garaje;
 
+import es.cursojava.poo.herencia.interfaces.ejercicios.cuid.Deletable;
 import es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable.Apagable;
 import es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable.Encendible;
 
-public abstract class VehiculoMotorizado extends Vehiculo implements Apagable, Encendible{
+public abstract class VehiculoMotorizado extends Vehiculo implements Apagable, Encendible, Deletable {
 
 	private String motor;
 	

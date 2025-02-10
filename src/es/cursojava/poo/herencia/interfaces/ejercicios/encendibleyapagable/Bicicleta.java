@@ -1,10 +1,11 @@
 package es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable;
 
 import es.cursojava.poo.herencia.ejercicios.garaje.Vehiculo;
+import es.cursojava.poo.herencia.interfaces.ejercicios.cuid.Insertable;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Bicicleta extends Vehiculo {
+public class Bicicleta extends Vehiculo implements Insertable {
 	
 	@Getter
 	@Setter
@@ -17,5 +18,15 @@ public class Bicicleta extends Vehiculo {
 
 	@Override
 	public void acelerar() {
+	}
+	
+	@Override
+	public void select() {
+		System.out.println("Consultando " + getMarca() + " " + getModelo());
+	}
+	
+	@Override
+	public void insert() {
+		System.out.println("Insertando en " + getMarca() + " " + getModelo());
 	}
 }

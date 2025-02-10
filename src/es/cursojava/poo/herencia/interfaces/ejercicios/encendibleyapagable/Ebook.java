@@ -3,7 +3,7 @@ package es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Ebook extends ProductoElectronico {
+public final class Ebook extends ProductoElectronico implements Operable {
 
 	@Getter @Setter private double memoria;
 	
@@ -21,6 +21,10 @@ public class Ebook extends ProductoElectronico {
 	public void encender() {
 		System.out.println(getNombre() + " está apagado.");
 	}
+	
+	public void suspender() {
+		System.out.println(getNombre() + " está suspendido.");
+	}
 
 	@Override
 	public String toString() {
@@ -30,4 +34,26 @@ public class Ebook extends ProductoElectronico {
 		builder.append("]");
 		return builder.toString();
 	}
+
+	@Override
+	public void select() {
+		System.out.println("Consultando " + getNombre());	
+	}
+
+	@Override
+	public void delete() {
+		System.out.println("Borrando " + getNombre());	
+	}
+
+	@Override
+	public void update() {
+		System.out.println("Actualizando " + getNombre());		
+	}
+
+	@Override
+	public void insert() {
+		System.out.println("Insertando en " + getNombre());	
+	}
+	
+	
 }

@@ -48,12 +48,31 @@ public class Coche extends VehiculoMotorizado {
 
 	@Override
 	public void encender() {
-		System.out.println(getModelo() + " " + getMarca() + " está encendido.");
+		System.out.println(getMarca() + " " + getModelo() + " está encendido.");
 	}
 
 	@Override
 	public void apagar() {
-		System.out.println(getModelo() + " " + getMarca() + " está apagado.");
+		System.out.println(getMarca() + " " + getModelo() + " está apagado.");
 	}
 	
+	@Override
+	public void delete() {
+		System.out.println("Borrando " + getMarca() + " " + getModelo());	
+	}
+
+	@Override
+	public void update() {
+		System.out.println("Actualizando " + getMarca() + " " + getModelo());
+	}
+
+	@Override
+	public void select() {
+		System.out.println("Consultando " + getMarca() + " " + getModelo());	
+	}
+
+	@Override
+	public void insert() {
+		System.out.println("Insertando en " + getMarca() + " " + getModelo());
+	}
 }

@@ -3,7 +3,7 @@ package es.cursojava.poo.herencia.interfaces.ejercicios.encendibleyapagable;
 import lombok.Getter;
 import lombok.Setter;
 
-public class Galleta extends Alimento {
+public final class Galleta extends Alimento {
 
 	@Getter
 	@Setter
@@ -17,4 +17,12 @@ public class Galleta extends Alimento {
 		this.tipoHarina = tipoHarina;
 		this.tieneTropezones = tieneTropezones;
 	}	
+	
+	public void select() {
+		System.out.println("Consultando " + getNombre());
+	}
+	
+	public void insert() {
+		System.out.println("Insertando en " + getNombre());
+	}
 }
