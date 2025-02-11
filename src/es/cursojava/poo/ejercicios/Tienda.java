@@ -22,7 +22,7 @@ public class Tienda {
 
 	}
 
-	private Maniqui[] abrirTienda() {
+	public Maniqui[] abrirTienda() {
 
 		Boton boton1 = new Boton("rojo", "diminuto", "redonda");
 		Boton boton2 = new Boton("azul", "enorme", "cuadrada");
@@ -44,7 +44,7 @@ public class Tienda {
 		return maniquisTienda;
 	}
 
-	private void mostrarEscaparate(Tienda tienda, Maniqui[] maniquisTienda) {
+	public void mostrarEscaparate(Tienda tienda, Maniqui[] maniquisTienda) {
 
 		int sumaPrecios = 0;
 		System.out.println("El escaparate de la tienda " + tienda.getNombre() + " contiene " + maniquisTienda.length
@@ -107,7 +107,7 @@ public class Tienda {
 		System.out.println("El precio total de la ropa en todos los maniquíes es de " + sumaPrecios + " €.\n");
 	}
 
-	private void cerrarTienda(Maniqui[] maniquisTienda) {
+	public void cerrarTienda(Maniqui[] maniquisTienda) {
 
 		for (Maniqui maniqui : maniquisTienda) {
 			maniqui.desvestir();

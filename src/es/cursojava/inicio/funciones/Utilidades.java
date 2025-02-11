@@ -9,7 +9,6 @@ public class Utilidades {
 		System.out.println(texto);
 		Scanner scan = new Scanner(System.in);
 		int numero = scan.nextInt();
-		scan.close();
 
 		return numero;
 	}
@@ -19,7 +18,6 @@ public class Utilidades {
 		System.out.println(dato);
 		Scanner scan = new Scanner(System.in);
 		String texto = scan.nextLine();
-		scan.close();
 
 		return texto;
 	}

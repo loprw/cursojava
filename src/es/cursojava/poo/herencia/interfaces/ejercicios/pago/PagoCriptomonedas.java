@@ -4,6 +4,6 @@ public class PagoCriptomonedas implements Pago {
 
 	@Override
 	public void procesarPago(double monto) {
-		System.out.println("Se está pagando " + monto + " a través de criptomonedas.");
+		System.out.println("Se está pagando " + monto + " a través de criptomonedas.\n.\n.\nPago realizado.");
 	}
 }

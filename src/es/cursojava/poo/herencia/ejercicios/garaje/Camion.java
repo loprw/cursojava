@@ -44,6 +44,7 @@ public class Camion extends VehiculoMotorizado {
 
 	@Override
 	public void acelerar() {
+		System.out.println("El camión " + getMarca() + " " + getModelo() + " está acelerando");
 	}
 
 	@Override

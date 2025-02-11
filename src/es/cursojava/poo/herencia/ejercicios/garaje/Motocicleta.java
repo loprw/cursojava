@@ -44,6 +44,7 @@ public class Motocicleta extends VehiculoMotorizado {
 
 	@Override
 	public void acelerar() {
+		System.out.println("La moto " + getMarca() + " " + getModelo() + " está acelerando");
 	}
 
 	@Override

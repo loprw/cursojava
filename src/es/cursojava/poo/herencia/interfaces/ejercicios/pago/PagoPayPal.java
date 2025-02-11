@@ -4,6 +4,6 @@ public class PagoPayPal implements Pago {
 
 	@Override
 	public void procesarPago(double monto) {
-		System.out.println("Se está pagando " + monto + " a través de PayPal.");
+		System.out.println("Se está pagando " + monto + " a través de PayPal.\n.\n.\nPago realizado.");
 	}
 }

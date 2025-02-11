@@ -44,6 +44,7 @@ public class Coche extends VehiculoMotorizado {
 
 	@Override
 	public void acelerar() {
+		System.out.println("El coche " + getMarca() + " " + getModelo() + " está acelerando");
 	}
 
 	@Override
