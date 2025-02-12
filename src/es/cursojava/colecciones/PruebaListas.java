@@ -1,6 +1,7 @@
 package es.cursojava.colecciones;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import es.cursojava.poo.herencia.Vaca;
 
@@ -8,7 +9,7 @@ public class PruebaListas {
 
 	public static void main(String[] args) {
 
-		ArrayList<Vaca> lista = new ArrayList<>();
+		List<Vaca> lista = new ArrayList<>();
 //		lista.add("Azul"); da error pq al indicar que solo puede haber objetos tipo Vaca, no acepta un String
 //		lista.add(1); da error pq al indicar que solo puede haber objetos tipo Vaca, no acepta un int
 		lista.add(new Vaca("vaca1", 0, 0));
@@ -16,7 +17,7 @@ public class PruebaListas {
 		lista.add(v2);
 
 		System.out.println(lista.size());
-
+		
 		lista.get(0).mugir();
 		lista.add(0, new Vaca("vaca3", 0, 0)); // la pone en la posición 0, moviendo a las anteriores.
 
