@@ -35,8 +35,7 @@ public class PruebaSets {
 		
 		while (alumni.hasNext()) {
 			Alumno al = alumni.next();
-			System.out.println(al);
+			System.out.println(al.getNombre());
 		}
-		
 	}
 }

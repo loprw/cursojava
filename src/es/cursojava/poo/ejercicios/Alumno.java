@@ -1,5 +1,7 @@
 package es.cursojava.poo.ejercicios;
 
+import java.util.Arrays;
+
 public class Alumno {
 
 	private String nombre;
@@ -94,6 +96,27 @@ public class Alumno {
 	public void setAsignaturas(String[] asignaturas) {
 		this.asignaturas = asignaturas;
 	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Alumno [nombre=");
+		builder.append(nombre);
+		builder.append(", apellidos=");
+		builder.append(apellidos);
+		builder.append(", edad=");
+		builder.append(edad);
+		builder.append(", notaMedia=");
+		builder.append(notaMedia);
+		builder.append(", email=");
+		builder.append(email);
+		builder.append(", asignaturas=");
+		builder.append(Arrays.toString(asignaturas));
+		builder.append("]");
+		return builder.toString();
+	}
 	
-	
+	public void mostrarInformacion() {
+		toString();
+	}
 }
