@@ -2,9 +2,11 @@ package es.cursojava.colecciones.ejercicios.alumnos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import es.cursojava.inicio.funciones.Utilidades;
 import es.cursojava.poo.ejercicios.Alumno;
@@ -36,18 +38,25 @@ public class MainAlumnosColecciones {
 		Alumno alumno5 = new Alumno("Victoria", "Jubilosa", 18, 9.3, "alumno5@example.com");
 		Alumno alumno6 = new Alumno("Pedro", "Martínez", 30, 4, "alumno6@example.com");
 
-		List<Alumno> alumnos = new ArrayList<>();
-		alumnos = Arrays.asList(alumno1, alumno2, alumno3, alumno4, alumno5, alumno6);
+		// otra opcion, tener en cuenta que .addAll AÑADE datos a la lista (manteniendo
+		// los datos añadidos anteriormente), igualar la variable crea un
+		// nuevo objeto y reemplaza a donde apunta la variable (eliminando los datos
+		// almacenados previamente)
+		
+		//el quitar alumnos funcionaria aquí pq es un ArrayList.
+		List<Alumno> listaAlumnos = new ArrayList<>();
+		listaAlumnos.addAll(Arrays.asList(alumno1, alumno2, alumno3, alumno4, alumno5, alumno6));
+		//el quitar alumnos no funcionaria aquí pq no es un ArrayList (en realidad no se sabe qué clase es)
+		List<Alumno> alumnos = Arrays.asList(alumno1, alumno2, alumno3, alumno4, alumno5, alumno6);
 
-		String nombre = Utilidades.pideDatoCadena("Indica el nombre de un alumno:");
 		mostrarInformacionAlumnos(alumnos);
+		String nombre = Utilidades.pideDatoCadena("Indica el nombre de un alumno:");
 		notaMediaNombre(alumnos, nombre);
 
 		double notaMedia = notaMediaIgualNombre(alumnos, nombre);
 
 		if (notaMedia != -1) {
-			System.out.println(
-					"La nota media de los alumnos con el nombre " + alumno4.getNombre() + " es: " + notaMedia + ".");
+			System.out.println("La nota media de los alumnos con el nombre " + nombre + " es: " + notaMedia + ".");
 		} else {
 			System.out.println("No hay alumnos con ese nombre en nuestros archivos.");
 		}
@@ -64,6 +73,12 @@ public class MainAlumnosColecciones {
 		aulas.put("aula3", listado3);
 
 		mostrarAlumnosAula(aulas);
+
+		mostrarAulaMejorNota(aulas);
+		
+		eliminarAlumnosSuspensos(listaAlumnos);
+		
+		mostrarInformacionAlumnos(listaAlumnos);
 	}
 
 	public static void mostrarInformacionAlumnos(List<Alumno> alumnos) {
@@ -110,17 +125,36 @@ public class MainAlumnosColecciones {
 			System.out.println(aulas.get(aula));
 		}
 	}
-	
+
 	public static void mostrarAulaMejorNota(Map<String, List<Alumno>> aulas) {
-		double numAula = -1;
-		for (String aula: aulas.keySet()) {
+		double mayorNotaMedia = -1;
+		String nombreAula = "";
+
+		for (String aula : aulas.keySet()) {
 			for (int i = 0; i < aulas.get(aula).size(); i++) {
-				if (aulas.get(aula).get(i).getNotaMedia() > numAula) {
-					numAula += aulas.get(aula).get(i).getNotaMedia();
+				if (aulas.get(aula).get(i).getNotaMedia() > mayorNotaMedia) {
+					mayorNotaMedia = aulas.get(aula).get(i).getNotaMedia();
+					nombreAula = aula;
 				}
 			}
 		}
-		
-		System.out.println("El aula con la mayor nota media es el aula " + aulas);
+		System.out.println("El aula con la mayor nota media es el " + nombreAula);
+	}
+
+	public static void eliminarAlumnosSuspensos(List<Alumno> alumnos) {
+// 		forma incorrecta, pq estamos recorriendo la lista y eliminamos datos de la
+// 		misma, por lo que Java se vuelve loco al ser un ArrayList. Si es un objeto de tipo
+//		CopyOnWriteArrayList, crea una copia al recorrerla y no da error.
+//		for (Alumno alumno : alumnos) {
+//			if (alumno.getNotaMedia() < 5) {
+//				alumnos.remove(alumno);
+//			}
+//		}
+		for (int i = 0; i < alumnos.size(); i++) {
+			Alumno alumno = alumnos.get(i);
+			if (alumno.getNotaMedia() < 5) {
+				alumnos.remove(i--);
+			}
+		}
 	}
 }

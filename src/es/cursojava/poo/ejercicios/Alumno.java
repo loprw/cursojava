@@ -117,6 +117,6 @@ public class Alumno {
 	}
 	
 	public void mostrarInformacion() {
-		toString();
+		System.out.println(this.toString());
 	}
 }
