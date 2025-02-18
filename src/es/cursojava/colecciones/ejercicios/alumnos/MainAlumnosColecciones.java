@@ -2,11 +2,9 @@ package es.cursojava.colecciones.ejercicios.alumnos;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import es.cursojava.inicio.funciones.Utilidades;
 import es.cursojava.poo.ejercicios.Alumno;
@@ -37,6 +35,12 @@ public class MainAlumnosColecciones {
 		Alumno alumno4 = new Alumno("Pedro", "Picapiedra", 42, 6, "alumno4@example.com");
 		Alumno alumno5 = new Alumno("Victoria", "Jubilosa", 18, 9.3, "alumno5@example.com");
 		Alumno alumno6 = new Alumno("Pedro", "Martínez", 30, 4, "alumno6@example.com");
+		Alumno alumno7 = new Alumno("Miguel", "Perez", 25, 7.5, "alumno7@example.com");
+		Alumno alumno8 = new Alumno("Jaime", "Gascón", 17, 9.4, "alumno8@example.com");
+		Alumno alumno9 = new Alumno("Adolfo", "Moreno", 32, 2.05, "alumno9@example.com");
+		Alumno alumno10 = new Alumno("Adriana", "de la Torre", 42, 10, "alumno10@example.com");
+		Alumno alumno11 = new Alumno("Sonsoles", "Hermosilla", 35, 9, "alumno11@example.com");
+		Alumno alumno12 = new Alumno("Soledad", "Jiménez", 60, 4, "alumno12@example.com");
 
 		// otra opcion, tener en cuenta que .addAll AÑADE datos a la lista (manteniendo
 		// los datos añadidos anteriormente), igualar la variable crea un
@@ -79,6 +83,46 @@ public class MainAlumnosColecciones {
 		eliminarAlumnosSuspensos(listaAlumnos);
 		
 		mostrarInformacionAlumnos(listaAlumnos);
+		
+		List<Alumno> aula1 = new ArrayList<>();
+		aula1.addAll(Arrays.asList(alumno1, alumno12));
+		List<Alumno> aula2 = new ArrayList<>();
+		aula2.addAll(Arrays.asList(alumno2, alumno11));
+		List<Alumno> aula3 = new ArrayList<>();
+		aula3.addAll(Arrays.asList(alumno3, alumno10));
+		List<Alumno> aula4 = new ArrayList<>();
+		aula4.addAll(Arrays.asList(alumno4, alumno9));
+		List<Alumno> aula5 = new ArrayList<>();
+		aula5.addAll(Arrays.asList(alumno5, alumno8));
+		List<Alumno> aula6 = new ArrayList<>();
+		aula6.addAll(Arrays.asList(alumno6, alumno7));
+		Map<String, List<Alumno>> aulas1 = new LinkedHashMap<>();
+		aulas1.put("aula1", aula1);
+		aulas1.put("aula2", aula2);
+		Map<String, List<Alumno>> aulas2 = new LinkedHashMap<>();
+		aulas2.put("aula1", aula3);
+		aulas2.put("aula2", aula4);
+		Map<String, List<Alumno>> aulas3 = new LinkedHashMap<>();
+		aulas3.put("aula1", aula5);
+		aulas3.put("aula2", aula6);
+		
+		Colegio colegio1 = new Colegio("CP Nuestra Señora de Jesús", "Calle Marcelo Usera 1", aulas1);
+		Colegio colegio2 = new Colegio("Cas Serres", "Avda Sant Jordi 2", aulas2);
+		Colegio colegio3 = new Colegio("CP Puig de'n Valls", "Calle Madrid 4", aulas3);
+		
+		List<Colegio> colegios = Arrays.asList(colegio1, colegio2, colegio3);
+		
+		mostrarInformacionColegios(colegios);
+		
+		
+	}
+	
+	public static void mostrarInformacionColegios(List<Colegio> colegios) {
+		
+		for (Colegio colegio : colegios) {
+			System.out.println(colegio);
+			
+		}
 	}
 
 	public static void mostrarInformacionAlumnos(List<Alumno> alumnos) {
