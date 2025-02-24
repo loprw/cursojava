@@ -12,6 +12,15 @@ public class Utilidades {
 
 		return numero;
 	}
+	
+	public static double pideDatoDouble(String texto) {
+
+		System.out.println(texto);
+		Scanner scan = new Scanner(System.in);
+		double numero = scan.nextDouble();
+
+		return numero;
+	}
 
 	public static String pideDatoCadena(String dato) {
 

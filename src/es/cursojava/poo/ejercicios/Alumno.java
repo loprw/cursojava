@@ -2,6 +2,8 @@ package es.cursojava.poo.ejercicios;
 
 import java.util.Arrays;
 
+import es.cursojava.excepciones.ejercicios.NotaInvalidaException;
+
 public class Alumno {
 
 	private String nombre;
@@ -10,32 +12,34 @@ public class Alumno {
 	private double notaMedia;
 	private String email;
 	private String[] asignaturas;
-	
-	public Alumno(String nombre, String apellidos, int edad, double notaMedia, String email, String[] asignaturas) {
-		
+
+	public Alumno(String nombre, String apellidos, int edad, double notaMedia, String email, String[] asignaturas)
+			throws NotaInvalidaException {
+
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.edad = edad;
-		this.notaMedia = notaMedia;
+		validarEdad(edad);
+		validarNotaMedia(notaMedia);
 		this.email = email;
 		this.asignaturas = asignaturas;
 	}
-	
-	public Alumno(String nombre, String apellidos, int edad, double notaMedia, String email) {
-		
+
+	public Alumno(String nombre, String apellidos, int edad, double notaMedia, String email)
+			throws NotaInvalidaException {
+
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.edad = edad;
-		this.notaMedia = notaMedia;
+		validarEdad(edad);
+		validarNotaMedia(notaMedia);
 		this.email = email;
 	}
-	
+
 	public Alumno() {
-		
+
 	}
-	
+
 	public void estudiar() {
-		
+
 		if (notaMedia == 0) {
 			System.out.println("No ha estudiado nada.");
 		} else if (notaMedia < 5) {
@@ -115,8 +119,24 @@ public class Alumno {
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 	public void mostrarInformacion() {
 		System.out.println(this.toString());
+	}
+
+	private void validarEdad(int edad) {
+		if (edad < 0) {
+			throw new IllegalArgumentException("El valor de edad es inválido, debe ser 0 o mayor.");
+		} else {
+			this.edad = edad;
+		}
+	}
+
+	private void validarNotaMedia(double notaMedia) throws NotaInvalidaException {
+		if (notaMedia < 0 || notaMedia > 10) {
+			throw new NotaInvalidaException("El valor de la nota media es incorrecto, debe estar entre 0 y 10.");
+		} else {
+			this.notaMedia = notaMedia;
+		}
 	}
 }
