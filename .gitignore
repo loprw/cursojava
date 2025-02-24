@@ -4,7 +4,10 @@
 ## Excepciones: permitir src y bin
 !src/
 !pom.xml
+!SQL/
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
 src/*
 !src/**
+SQL/*
+!SQL/**
