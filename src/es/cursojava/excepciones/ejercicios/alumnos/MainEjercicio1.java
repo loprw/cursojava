@@ -1,4 +1,4 @@
-package es.cursojava.excepciones.ejercicios;
+package es.cursojava.excepciones.ejercicios.alumnos;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,17 +10,17 @@ public class MainEjercicio1 {
 
 	public static void main(String[] args) {
 
-		List<Alumno> listaAlumnos = alumnos();
-		for (Alumno alumno : listaAlumnos) {
+		List<es.cursojava.excepciones.ejercicios.alumnos.Alumno> listaAlumnos = crearAlumnos();
+		for (es.cursojava.excepciones.ejercicios.alumnos.Alumno alumno : listaAlumnos) {
 			System.out.println(alumno);
 		}
 
 	}
 
-	public static List<Alumno> alumnos() {
+	public static List<es.cursojava.excepciones.ejercicios.alumnos.Alumno> crearAlumnos() {
 		System.out.println("Vamos a crear 5 alumnos:");
 		int numAlumnos = 5;
-		List<Alumno> listaAlumnos = new ArrayList<Alumno>();
+		List<es.cursojava.excepciones.ejercicios.alumnos.Alumno> listaAlumnos = new ArrayList<>();
 		int contador = 1;
 
 		do {
@@ -31,12 +31,14 @@ public class MainEjercicio1 {
 			double notaMedia = Utilidades.pideDatoDouble("Indica la nota media del alumno " + contador + ":");
 			String email = Utilidades.pideDatoCadena("Indica el email del alumno " + contador + ":");
 			try {
-				Alumno varAlumno = new Alumno(nombre, apellidos, edad, notaMedia, email);
+				es.cursojava.excepciones.ejercicios.alumnos.Alumno varAlumno = 
+						new es.cursojava.excepciones.ejercicios.alumnos.Alumno(
+						nombre, apellidos, edad, notaMedia, email);
 				listaAlumnos.add(varAlumno);
 			} catch (NotaInvalidaException nie) {
-				System.out.println("Error 1: " + nie.getMessage());
+				System.err.println("Error 1: " + nie.getMessage());
 			} catch (IllegalArgumentException iae) {
-				System.out.println("Error 2: " + iae.getMessage());
+				System.err.println("Error 2: " + iae.getMessage());
 			}
 
 			contador++;

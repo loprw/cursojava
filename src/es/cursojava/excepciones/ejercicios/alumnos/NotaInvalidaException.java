@@ -1,4 +1,4 @@
-package es.cursojava.excepciones.ejercicios;
+package es.cursojava.excepciones.ejercicios.alumnos;
 
 public class NotaInvalidaException extends Exception{
 
