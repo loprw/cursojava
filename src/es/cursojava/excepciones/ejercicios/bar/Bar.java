@@ -3,6 +3,9 @@ package es.cursojava.excepciones.ejercicios.bar;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.cursojava.excepciones.ejercicios.bar.excepciones.TooColdTemperatureException;
+import es.cursojava.excepciones.ejercicios.bar.excepciones.TooHotTemperatureException;
+
 public class Bar {
 
 	private String nombre;
@@ -12,23 +15,11 @@ public class Bar {
 		Bar bar = new Bar("Donde siempre");
 		List<Cliente> clientes = bar.abrirBar();
 		
-		for (Cliente cliente : clientes) {
-			if (cliente instanceof Cafeteable) {
-				TazaCafe cafe = new TazaCafe("Arábigo");
-				try {
-					((Cafeteable) cliente).beberCafe(cafe);
-				} catch (TooHotTemperatureException thte) {
-					System.out.println("Error 1: " + thte.getMessage());
-				} catch (TooColdTemperatureException tcte) {
-					System.out.println("Error 2: " + tcte.getMessage());
-				}
-			}
-		}
+		bar.cafetear(clientes);
 		
 	}
 
 	public Bar(String nombre) {
-		super();
 		this.nombre = nombre;
 	}
 
@@ -51,5 +42,20 @@ public class Bar {
 		System.out.println("¡Clientes creados!\n");
 		
 		return listadoClientes;
+	}
+	
+	public void cafetear(List<Cliente> clientes) {
+		for (Cliente cliente : clientes) {
+			if (cliente instanceof Cafeteable) {
+				TazaCafe cafe = new TazaCafe("Arábigo");
+				try {
+					((Cafeteable) cliente).beberCafe(cafe);
+				} catch (TooHotTemperatureException thte) {
+					thte.printStackTrace();
+				} catch (TooColdTemperatureException tcte) {
+					tcte.printStackTrace();
+				}
+			}
+		}
 	}
 }

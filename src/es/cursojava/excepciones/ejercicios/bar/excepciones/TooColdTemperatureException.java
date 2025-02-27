@@ -1,4 +1,4 @@
-package es.cursojava.excepciones.ejercicios.bar;
+package es.cursojava.excepciones.ejercicios.bar.excepciones;
 
 public class TooColdTemperatureException extends TemperatureException {
 
