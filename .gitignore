@@ -5,9 +5,12 @@
 !src/
 !pom.xml
 !SQL/
+!recursos/
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
 src/*
 !src/**
 SQL/*
 !SQL/**
+recursos/*
+!recursos/**
