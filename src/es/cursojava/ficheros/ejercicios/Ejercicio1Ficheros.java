@@ -6,12 +6,11 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import es.cursojava.Main;
 import es.cursojava.inicio.funciones.Utilidades;
 
 public class Ejercicio1Ficheros {
 	
-    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+    private static final Logger logger = LoggerFactory.getLogger(Ejercicio1Ficheros.class);
 
 	public static void main(String[] args) {
 		

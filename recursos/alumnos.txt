@@ -1,0 +1,3 @@
+Jose|Mínguez|25|5.8|jmingez@ejemplo.es|Física,Matemáticas,Historia
+Elena|Santos|37|8.5|esantos@ejemplo.es|Física,Química,Historia
+Antonio|López|41|7.1|alopez@ejemplo.es|Literatura,Química,Historia
