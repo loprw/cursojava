@@ -98,7 +98,7 @@ public class ArchivoServicio {
 		}
 	}
 
-	public String leerArchivo(String nombre) throws IOException {
+	public String leerArchivo(String nombre) throws IOException{
 		StringBuilder sb = new StringBuilder();
 		File archivo = new File(nombre);
 //		FileReader fileReader = new FileReader(archivo);
