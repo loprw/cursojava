@@ -18,20 +18,25 @@
 --    CONSTRAINT notnull_equipos_nombre CHECK (nombre IS NOT NULL)
 --);
 
---INSERT INTO empleados VALUES (4, 'Julián Mínguez', 29, 3000.00, 2, '05/05/2020');
---INSERT INTO empleados VALUES (5, 'Anable Pinto', 34, 4500.00, 1, '01/09/2021');
---INSERT INTO empleados VALUES (6, 'Esther Duarte', 50, 2345.50, 3, '24/12/2023');
+--INSERT INTO empleados VALUES (4, 'Julián Mínguez', 29, 3000.00, 2, TO_DATE('05/05/2020', 'DD/MM/YYYY));
+--INSERT INTO empleados VALUES (5, 'Anable Pinto', 34, 4500.00, 1, TO_DATE('01/09/2021', 'DD/MM/YYYY));
+--INSERT INTO empleados VALUES (6, 'Esther Duarte', 50, 2345.50, 3, TO_DATE('24/12/2023', 'DD/MM/YYYY));
 --ALTER TABLE empleados ADD equipo_id NUMBER(5);
 --ALTER TABLE empleados ADD CONSTRAINT fk_equipos_empleados FOREIGN KEY (equipo_id) REFERENCES equipos(id);
 --UPDATE empleados SET equipo_id = 3 WHERE id = 6;
+--Otra opción:
+--UPDATE empleados SET equipo_id (SELECT id from equipos WHERE nombre = 'Equipo Comercial')
+--WHERE id IN (4, 6, 8);
+--UPDATE empleados SET equipo_id (SELECT id from equipos WHERE nombre = 'Equipo Desarrollo')
+--WHERE id NOT IN (4, 6, 8);
 --UPDATE empleados SET equipo_id = 1 WHERE id = 4 OR id = 2;
 --UPDATE empleados SET equipo_id = 2 WHERE id = 1 OR id = 3 OR id = 5;
 --ALTER TABLE empleados ADD CONSTRAINT notnull_empleaados_equipoid CHECK (equipo_id IS NOT NULL);
 --UPDATE empleados SET nombre = 'Anabel Duarte' WHERE nombre = 'Anable Pinto';
 
 
---INSERT INTO equipos VALUES (1, 'Equipo Directivo', '05/05/2020');
---INSERT INTO equipos VALUES (2, 'Equipo Comercial', '10/10/2024');
+--INSERT INTO equipos VALUES (1, 'Equipo Directivo', TO_DATE('05/05/2020', 'DD/MM/YYYY));
+--INSERT INTO equipos VALUES (2, 'Equipo Comercial', TO_DATE('10/10/2024', 'DD/MM/YYYY));
 --INSERT INTO equipos (id, nombre) VALUES (3, 'Equipo Desarrollo');
 
 SELECT em.nombre, eq.nombre
