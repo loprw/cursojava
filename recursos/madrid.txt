@@ -1,0 +1,10 @@
+1,Festival de Cine,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Festival de Cine que se celebra en Madrid,60,15.5,CineEspaña,false.
+12,Show de Comedia,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Show de Comedia que se celebra en Madrid,90,0.0,ComedyHouse,false.
+23,Feria de Artesanía,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Feria de Artesanía que se celebra en Madrid,120,25.0,ArtesaniaOrg,false.
+34,Encuentro de Danza,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Encuentro de Danza que se celebra en Madrid,150,0.0,DanceFusion,false.
+45,Recital de Rock,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Recital de Rock que se celebra en Madrid,180,15.5,RockLive,false.
+56,Ballet Moderno,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Ballet Moderno que se celebra en Madrid,60,10.0,BalletGroup,false.
+67,Muestra Gastronómica,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Muestra Gastronómica que se celebra en Madrid,90,25.0,GastroShow,false.
+78,Conferencia de Tecnología,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Conferencia de Tecnología que se celebra en Madrid,120,30.0,TechConf,false.
+89,Feria del Libro,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Feria del Libro que se celebra en Madrid,150,15.5,LibroFest,false.
+100,Teatro Clásico,Mon Dec 30 00:00:00 CET 2024,Madrid,Evento anual de Teatro Clásico que se celebra en Madrid,180,0.0,TeatroHistorico,false.
