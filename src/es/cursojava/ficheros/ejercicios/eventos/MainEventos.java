@@ -13,16 +13,16 @@ public class MainEventos {
 		List<Evento> listadoEventos = UtilidadesEventos.leerFichero(direccion);
 		System.out.println(listadoEventos.size());
 		
-//		Map<String, List<Evento>> mapaEventos = UtilidadesEventos.mapearEventosPorCiudad(listadoEventos);
-//		System.out.println(mapaEventos.size());
-//		
-//		UtilidadesEventos.cantidadEventosPorCiudad(mapaEventos);
-//		
-//		String ciudad = Utilidades.pideDatoCadena("Indica una ciudad para ver sus eventos:");
-//		
-//		UtilidadesEventos.crearArchivoEventosPorCiudad(mapaEventos, ciudad);
-//		
-//		UtilidadesEventos.mostrarCiudadesEventosGratis(mapaEventos);
+		Map<String, List<Evento>> mapaEventos = UtilidadesEventos.mapearEventosPorCiudad(listadoEventos);
+		System.out.println(mapaEventos.size());
+		
+		UtilidadesEventos.cantidadEventosPorCiudad(mapaEventos);
+		
+		String ciudad = Utilidades.pideDatoCadena("Indica una ciudad para ver sus eventos:");
+		
+		UtilidadesEventos.crearArchivoEventosPorCiudad(mapaEventos, ciudad);
+		
+		UtilidadesEventos.mostrarCiudadesEventosGratis(mapaEventos);
 	}
 
 }

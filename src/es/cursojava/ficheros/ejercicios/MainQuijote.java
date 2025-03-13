@@ -23,7 +23,7 @@ public class MainQuijote {
 		String texto = "El número de líneas del texto es de " + contarLineas(fichero);
 		logger.info(texto);
 
-		String personaje = "Dulcinea";
+		String personaje = "quijote";
 		String texto2 = "El número de veces que aparece la palabra " + personaje + " en el texto es "
 				+ contarMenciones(fichero, personaje);
 		logger.info(texto2);
@@ -55,7 +55,7 @@ public class MainQuijote {
 			while (scan.hasNext()) {
 				String[] palabras = scan.next().split(" ");
 				for (String palabra : palabras) {
-					if (palabra.contains(personaje)) {
+					if (palabra.toLowerCase().contains(personaje)) {
 						contador++;
 					}
 				}

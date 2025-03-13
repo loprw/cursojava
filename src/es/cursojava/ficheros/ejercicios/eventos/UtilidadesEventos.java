@@ -6,10 +6,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -34,26 +32,27 @@ public class UtilidadesEventos {
 			scan.next();
 			while (scan.hasNext()) {
 				String[] evento = scan.next().split(",");
-				int id = Integer.parseInt(evento[0]);
-				String name = evento[1];
-				SimpleDateFormat formato = new SimpleDateFormat("YYYY-MM-DD");
+				int id = Integer.parseInt(evento[0].trim());
+				String name = evento[1].trim();
+				SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 				Date fecha = null;
+				System.out.println(evento[2]);
 				try {
-					fecha = formato.parse(evento[2]);
+					fecha = formato.parse(evento[2].trim());
+					System.out.println(fecha);
 				} catch (ParseException pe) {
 					logger.error(pe.getMessage());
 					pe.printStackTrace();
 				}
-				String lugar = evento[3];
-				String descripcion = evento[4];
-				int duracion = Integer.parseInt(evento[5]);
-				double precio = Double.parseDouble(evento[6]);
-				String organizador = evento[7];
-				System.out.println("valor real:" + evento[8]);
-				boolean esGratuito = Boolean.parseBoolean(evento[8]);
-				System.out.println(esGratuito);
+				String lugar = evento[3].trim();
+				String descripcion = evento[4].trim();
+				int duracion = Integer.parseInt(evento[5].trim());
+				double precio = Double.parseDouble(evento[6].trim());
+				String organizador = evento[7].trim();
+				boolean gratuito = Boolean.parseBoolean(evento[8].trim());
+				//boolean gratuito = evento[8].equals("true")?true:false;
 				listadoEventos.add(
-						new Evento(id, name, fecha, lugar, descripcion, duracion, precio, organizador, esGratuito));
+						new Evento(id, name, fecha, lugar, descripcion, duracion, precio, organizador, gratuito));
 			}
 
 		} catch (FileNotFoundException fnfe) {
@@ -125,7 +124,7 @@ public class UtilidadesEventos {
 					sb.append(evento.getDuracion() + ",");
 					sb.append(evento.getPrecio() + ",");
 					sb.append(evento.getOrganizador() + ",");
-					sb.append(evento.isEsGratuito() + ".");
+					sb.append(evento.isGratuito());
 					sb.append("\n");
 					
 					try (PrintWriter buffer = new PrintWriter(archivo)) {
@@ -153,14 +152,14 @@ public class UtilidadesEventos {
 		
 		for (Entry<String, List<Evento>> entry : entryEventos) {
 			for(Evento evento: entry.getValue()) {
-				if(evento.isEsGratuito()) {
+				if(evento.isGratuito()) {
 					System.out.println(entry.getKey());
 					ciudadesEventoGratis.add(entry.getKey());
 				}
 			}
 		}
 		
-		System.out.println("num" + ciudadesEventoGratis.size());
+		logger.info("Ciudades con eventos gratis:");
 		for (String ciudad:ciudadesEventoGratis) {
 			logger.info(ciudad);
 		}

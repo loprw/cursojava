@@ -12,10 +12,10 @@ public class Evento {
 	private int duracion;
 	private double precio;
 	private String organizador;
-	private boolean esGratuito;
+	private boolean gratuito;
 
 	public Evento(int id, String nombre, Date fecha, String lugar, String descripcion, int duracion, double precio,
-			String organizador, boolean esGratuito) {
+			String organizador, boolean gratuito) {
 
 		this.id = id;
 		this.nombre = nombre;
@@ -25,7 +25,7 @@ public class Evento {
 		this.duracion = duracion;
 		this.precio = precio;
 		this.organizador = organizador;
-		this.esGratuito = esGratuito;
+		this.gratuito = gratuito;
 	}
 
 	public int getId() {
@@ -60,7 +60,32 @@ public class Evento {
 		return organizador;
 	}
 
-	public boolean isEsGratuito() {
-		return esGratuito;		
+	public boolean isGratuito() {
+		return gratuito;		
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Evento [id=");
+		builder.append(id);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", fecha=");
+		builder.append(fecha);
+		builder.append(", lugar=");
+		builder.append(lugar);
+		builder.append(", descripcion=");
+		builder.append(descripcion);
+		builder.append(", duracion=");
+		builder.append(duracion);
+		builder.append(", precio=");
+		builder.append(precio);
+		builder.append(", organizador=");
+		builder.append(organizador);
+		builder.append(", gratuito=");
+		builder.append(gratuito);
+		builder.append("]");
+		return builder.toString();
 	}
 }
