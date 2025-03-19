@@ -39,16 +39,15 @@ public class ConsultaBaseDatos {
 		} catch (SQLException sqle) {
 			logger.error("Error al crear objeto Statement: " + sqle.getMessage());
 		} finally {
-			try {
-				st.close();
-			} catch (SQLException sqle) {
-				logger.error(sqle.getMessage());
-			}
-			try {
+			UtilidadesBD.cerrarConexion(conexion);
+						try {
 				rs.close();
+				st.close();
 			} catch (SQLException sqle) {
 				logger.error(sqle.getMessage());
 			}			
 		}
+		
+		logger.info("TERMINA");
 	}
 }
