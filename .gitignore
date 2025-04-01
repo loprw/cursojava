@@ -6,7 +6,9 @@
 !pom.xml
 !SQL/
 !recursos/
-!.getignore
+!html/
+!javascript/
+!.gitignore
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
 src/*
@@ -15,5 +17,9 @@ SQL/*
 !SQL/**
 recursos/*
 !recursos/**
-.getignore
-!.getignore
+html/*
+!html/**
+javascript/*
+!javascript/**
+.gitignore
+!.gitignore
