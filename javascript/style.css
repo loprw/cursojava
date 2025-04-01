@@ -1,0 +1,28 @@
+header {
+    position: fixed;
+    height: 20px;
+    width: 100%;
+    top: 0%;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: cadetblue;
+    color:azure;
+}
+
+main {
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    bottom: 40px;
+}
+
+footer {
+    position: fixed;
+    height: 20px;
+    width: 100%;
+    bottom: 0%;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background-color: cadetblue;
+    color:azure;
+}

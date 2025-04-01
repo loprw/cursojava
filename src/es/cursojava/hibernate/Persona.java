@@ -1,6 +1,8 @@
 package es.cursojava.hibernate;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -9,11 +11,14 @@ import jakarta.persistence.Table;
 
 public class Persona {
 	@Id
-	private long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private String nombre;
 	
 	private int edad;
+	
+	private String apellidos;
 
 	
 	public Persona() {
@@ -46,6 +51,14 @@ public class Persona {
 
 	public void setEdad(int edad) {
 		this.edad = edad;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	@Override

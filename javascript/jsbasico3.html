@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript básico (III)</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <script>
+        function mostrar_elemento() {
+            let elemento_input = document.getElementById("nombre");
+            let elemento_p = document.querySelector("#eco");
+            //alert('Enviamos nombre: ' + elemento.value);
+            elemento_p.innerHTML = elemento_input.value;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Mi formulario
+    </header>
+
+    <main>
+        <form action="#" onsubmit="mostrar_mensaje('Hemos enviado el formulario')">
+            <label>Nombre:
+            <input id="nombre" name="nombre"/></label>
+            <button onclick="mostrar_elemento()">Enviar</button>
+        </form>
+        <p id="eco"></p>
+    </main>
+
+    <footer>
+        ©Clase Getafe
+    </footer>
+    
+</body>
+</html>
