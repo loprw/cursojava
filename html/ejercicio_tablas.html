@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ejercicio tablas</title>
+</head>
+<body>
+    <h1>Ejercicio de Tablas</h1>
+
+    <label for="allspan">Tabla con colspan y rowspan</label><br>
+    <table id="allspan" name="allspan"><br>
+        <thead>
+            <tr>
+                <td><b>Departamento</b></td>
+                <td><b>Empleado</b></td>
+                <td><b>Cargp</b></td>
+                <td><b>Salario</b></td>
+                <td><b>Bonos</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Ventas</td>
+                <td>Juan</td>
+                <td>Vendedor</td>
+                <td>2000 €</td>
+                <td>200 €</td>
+            </tr>
+
+            <tr>
+                <td>María</td>
+                <td>Vendedor</td>
+                <td>2100 €</td>
+                <td>250 €</td>
+            </tr>
+
+            <tr>
+                <td rowspan="3">IT</td>
+                <td>Carlos</td>
+                <td>Desarrollador</td>
+                <td>3000 €</td>
+                <td>400 €</td>
+            </tr>
+
+            <tr>
+                <td>Ana</td>
+                <td>Desarrollador</td>
+                <td>3200 €</td>
+                <td>500 €</td>
+            </tr>
+
+            <tr>
+                <td>Pedro</td>
+                <td>Soporte</td>
+                <td>2500 €</td>
+                <td>300 €</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">Recursos Humanos</td>
+                <td>Laura</td>
+                <td>Reclutadora</td>
+                <td>2800 €</td>
+                <td>350 €</td>
+            </tr>
+
+            <tr>
+                <td><b>TOTAL GENERAL</b></td>
+                <td colspan="3">15600 €</td>
+            </tr>
+        </tbody>
+    </table><br><br>
+
+    <label for="rowspan">Tabla con rowspan</label><br>
+    <table id="rowspan" name="rowspan"><br>
+        <thead>
+            <tr>
+                <td><b>Departamento</b></td>
+                <td><b>Empleado</b></td>
+                <td><b>Cargo</b></td>
+                <td><b>Salario</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"><b>Ventas</b></td>
+                <td>Juan</td>
+                <td>Vendedor</td>
+                <td>2000 €</td>
+            </tr>
+
+            <tr>
+                <td>María</td>
+                <td>Vendedor</td>
+                <td>2100 €</td>
+            </tr>
+
+            <tr>
+                <td rowspan="2"><b>IT</b></td>
+                <td>Carlos</td>
+                <td>Desarrollador</td>
+                <td>3000 €</td>
+            </tr>
+
+            <tr>
+                <td>Ana</td>
+                <td>Desarrollador</td>
+                <td>3200 €</td>
+            </tr>
+
+            <tr>
+                <td><b>Recursos Humanos</b></td>
+                <td>Laura</td>
+                <td>Reclutadora</td>
+                <td>2800 €</td>
+            </tr>
+        </tbody>
+    </table><br><br>
+    
+
+    <label for="colspan">Tabla con colspan</label><br>
+    <table id="colspan" name="colspan"><br>
+        <thead>
+            <tr>
+                <td><b>Producto</b></td>
+                <td><b>Categoría</b></td>
+                <td><b>Precio</b></td>
+                <td><b>Stock</b></td>
+                <td><b>Descuento</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Smartphone X</td>
+                <td>Electrónica</td>
+                <td>500 €</td>
+                <td>20</td>
+                <td>10%</td>
+            </tr>
+
+            <tr>
+                <td>Laptop Y</td>
+                <td>Electrónica</td>
+                <td>1200 €</td>
+                <td>15</td>
+                <td>5%</td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Electrodomésticos</b></td>
+            </tr>
+
+            <tr>
+                <td>Refrigerador Z</td>
+                <td>Hogar</td>
+                <td>800 €</td>
+                <td>10</td>
+                <td>15%</td>
+            </tr>
+
+            <tr>
+                <td>Lavadora A</td>
+                <td>Hogar</td>
+                <td>600 €</td>
+                <td>5</td>
+                <td>20%</td>
+            </tr>
+
+            <tr>
+                <td colspan="5"><b>Promoción especial: Todo al 50% de descuento</b></td>
+            </tr>
+        </tbody>
+    </table><br><br>
+
+    <label for="basic">Tabla básica</label><br>
+    <table id="basic" name="basic"><br>
+        <thead>
+            <tr>
+                <td>Juego</td>
+                <td>Expansión</td>
+                <td>Número de carta</td>
+                <td>Nombre</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Kult</td>
+                <td>Base</td>
+                <td>1</td>
+                <td>Kether</td>
+            </tr>
+            <tr>
+                <td>Kult</td>
+                <td>Base</td>
+                <td>2</td>
+                <td>Thaumiel</td>
+            </tr>
+            <tr>
+                <td>Kult</td>
+                <td>Base</td>
+                <td>3</td>
+                <td>Chokmah</td>
+            </tr>
+            <tr>
+                <td>Kult</td>
+                <td>Base</td>
+                <td>4</td>
+                <td>Chagidiel</td>
+            </tr>
+            <tr>
+                <td>Kult</td>
+                <td>Inferno</td>
+                <td>1</td>
+                <td>Marcus Abernathy</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

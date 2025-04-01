@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ejercicio formulario</title>
+    <style>
+        input {
+            background-color: coral;
+        }
+
+
+
+        .bgColor {
+            background-color: rgb(55, 114, 165);
+        }
+
+        #text {
+            background-color: cadetblue;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            text-align: center;
+            width: 100%;
+            height: 10px;
+            background: black;
+            color: white;
+            font-family: fantasy;
+            font-size: 36px;
+            padding: 5px;
+        }
+
+        label {
+            font-family: 'Franklin Gothic Medium';
+            font-size: 10px;
+            text-shadow: #caaa35;
+        }
+
+        label[for="email"] {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        MI CABECERA
+    </header>
+    <main>
+        <section>
+            <form action="http://www.google.com" class="bgColor">
+
+                <label for="text">Caja de texto</label>
+                <input type="text" name="text" id="text"></input><br>
+
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"></input><br>
+
+                <label for="boton">Botón</label>
+                <input type="button" onclick="alert('¡Hola, Mundo!')" value="¡Cliquéame!" id="boton"
+                    name="boton"></input><br>
+
+                <label for="hidden">Escondido</label>
+                <input type="hidden" name="hidden"></input><br>
+
+                <label>Selector círculo</label><br>
+                <input type="radio" name="radio" id="radio" value="1"></input>
+                <label for="radio">1</label><br>
+                <input type="radio" name="radio2" id="radio2" value="2"></input>
+                <label for="radio2">2</label><br>
+                <input type="radio" name="radio3" id="radio3" value="0"></input>
+                <label for="radio3">Cualquiera</label><br>
+
+                <label>Selector múltiple</label><br>
+                <input type="checkbox" name="checkbox" id="checkbox" value="1"></input>
+                <label for="checkbox">1</label>
+                <input type="checkbox" name="checkbox2" id="checkbox2" value="2"></input>
+                <label for="checkbox2">2</label>
+                <input type="checkbox" name="checkbox3" id="checkbox3" value="0"></input>
+                <label for="checkbox3">Cualquiera</label><br>
+
+                <label for="range">Rango de 0 a 100</label>
+                <input type="range" name="range" id="range" min="0" max="100"></input><br>
+
+                <label for="tel">Teléfono</label>
+                <input type="tel" name="tel" id="tel"></input><br>
+
+                <button type="submit">Enviar</button>
+                <button type="reset">Limpiar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

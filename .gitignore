@@ -6,6 +6,8 @@
 !pom.xml
 !SQL/
 !recursos/
+!html/
+!javascript/
 !.getignore
 
 ## Ignorar todo dentro de src y bin, excepto sus contenidos
@@ -15,5 +17,9 @@ SQL/*
 !SQL/**
 recursos/*
 !recursos/**
+html/*
+!html/**
+javascript/*
+!javascript/**
 .getignore
 !.getignore
