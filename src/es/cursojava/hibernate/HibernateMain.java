@@ -30,11 +30,5 @@ public class HibernateMain {
             System.err.println("Error al crear la SessionFactory." + ex);
             throw new ExceptionInInitializerError(ex);
         }
-        
-        
-
-        
-        
-        
     }
 }

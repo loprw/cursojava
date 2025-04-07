@@ -1,13 +1,15 @@
 package es.cursojava.entities;
 
-import org.hibernate.annotations.Check;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 
 @Entity
 @Table(name = "TB_CABALLOS")
@@ -17,27 +19,34 @@ public class CaballoCarrera {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false, unique = true, length = 50)
+	@Column(name = "nombre", nullable = false, unique = true, length = 50)
 	private String nombre;
 	
-	@Column(nullable = false)
-	//@Check(constraints = "edad IN (2, 30)")
+	@Column(name = "edad", nullable = false, columnDefinition = "int check (edad>=2 and edad<=30) ")
+	@Min(value = 2)
+	@Max(value = 30)
 	private int edad;
 	
-	@Column(nullable = false, length = 4)
-	//@Check(constraints = "velocidad IN (30.0, 80.0")
+	@Column(name = "velocidad máxima", nullable = false, length = 4)
+	@DecimalMin(value = "30.0")
+	@DecimalMax(value = "80.0")
 	private double velocidadMaxima;
 	
-	@Column
-	//@Check(constraints = "numeroTriunfos >= 0")
+	@Column(name = "triunfos")
+	@Min(value = 0)
 	private int numeroTriunfos;
 	
-	@Column
-	//@Check(constraints = "experiencia IN (0.0, 10.0")
+	@Column(name = "experiencia")
+	@DecimalMin(value = "0.0")
+	@DecimalMax(value = "10.0")
 	private double experiencia;
 	
-	@Column
+	@Column(name = "activo")
 	private boolean estaActivo;
+	
+	public CaballoCarrera() {
+		
+	}
 
 	public CaballoCarrera(String nombre, int edad, double velocidadMaxima, int numeroTriunfos, double experiencia,
 			boolean estaActivo) {
