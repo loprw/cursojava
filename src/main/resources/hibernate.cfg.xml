@@ -21,11 +21,13 @@
         <!-- <property name="hibernate.default_schema">tu_usuario</property> -->
 
         <!-- Generar las tablas automáticamente -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- Clase mapeada -->
         <mapping class="es.cursojava.entities.Persona"/>
         <mapping class="es.cursojava.entities.CaballoCarrera"/>
+        <mapping class="es.cursojava.hibernate.unoauno.Usuario"/>
+        <mapping class="es.cursojava.hibernate.unoauno.Direccion"/>
 
     </session-factory>
 </hibernate-configuration>

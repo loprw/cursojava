@@ -187,14 +187,22 @@ public class UtilidadesHibernate {
 		
 		String consulta = "FROM TB_CABALLOS c WHERE c.activo = :estado";
 		Query<CaballoCarrera> query = session.createQuery(consulta, CaballoCarrera.class);
+		query.setParameter("estado", 1);
 		List<CaballoCarrera> listado = query.list();
+		
+		if (listado != null) {
+			logger.debug("Listado de caballos de carrera NO ES nulo.");
+		} else {
+			logger.debug("Listado de caballos de carrera ES nulo");
+		}
+
 		
 		return listado;
 	}
 	
 	private static void empezarCarrera(List<CaballoCarrera> caballos) {
 		
-		double distancia = 1000;
+		final double DISTANCIA = 1000;
 	}
 
 	public static void menu(Session session) {
