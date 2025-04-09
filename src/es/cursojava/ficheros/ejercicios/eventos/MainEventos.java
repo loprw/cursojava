@@ -3,7 +3,7 @@ package es.cursojava.ficheros.ejercicios.eventos;
 import java.util.List;
 import java.util.Map;
 
-import es.cursojava.inicio.funciones.Utilidades;
+import es.cursojava.utils.Utilidades;
 
 public class MainEventos {
 	

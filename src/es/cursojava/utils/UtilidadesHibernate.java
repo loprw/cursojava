@@ -14,7 +14,6 @@ import es.cursojava.hibernate.ejercicios.caballos.exceptions.ErrorEdadException;
 import es.cursojava.hibernate.ejercicios.caballos.exceptions.ErrorExperienciaException;
 import es.cursojava.hibernate.ejercicios.caballos.exceptions.ErrorTriunfosException;
 import es.cursojava.hibernate.ejercicios.caballos.exceptions.ErrorVelocidadMaxException;
-import es.cursojava.inicio.funciones.Utilidades;
 
 public class UtilidadesHibernate {
 

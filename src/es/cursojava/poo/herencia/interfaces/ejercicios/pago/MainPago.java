@@ -1,8 +1,8 @@
 package es.cursojava.poo.herencia.interfaces.ejercicios.pago;
 
-import es.cursojava.inicio.funciones.Utilidades;
 import es.cursojava.poo.ejercicios.Maniqui;
 import es.cursojava.poo.ejercicios.Tienda;
+import es.cursojava.utils.Utilidades;
 
 public class MainPago {
 

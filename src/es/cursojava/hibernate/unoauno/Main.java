@@ -4,9 +4,10 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import es.cursojava.hibernate.HibernateUtil;
-import es.cursojava.inicio.funciones.Utilidades;
+import es.cursojava.utils.Utilidades;
 
 
 public class Main {
@@ -15,7 +16,9 @@ public class Main {
     public static void main(String[] args) {
         
     	//insertarUsuario();
-        consultarUsuarios();
+        //consultarUsuarios();
+        //consultarDirecciones();
+        consultarUsuarioPorDireccionId(1);
    
         session.close();
     }
@@ -43,7 +46,33 @@ public class Main {
         
         for (Usuario usuario : usuarios) {
 			System.out.println(usuario.getNombre() + " " + usuario.getDireccion().getCalle());
-		}
+		} 
+    }
+    
+    private static void consultarDirecciones() {
+        List<Direccion> direcciones = session.createQuery("from Direccion", Direccion.class)
+                .getResultList();
         
+        for (Direccion direccion : direcciones) {
+			System.out.println(direccion.getCalle() + " " + direccion.getCiudad() + " " + direccion.getUsuario().getNombre());
+		} 
+    }
+    
+    private static Usuario consultarUsuarioPorDireccionId(long id) {
+    	
+    	Direccion dir = session.find(Direccion.class, id);
+    	
+    	return dir.getUsuario();
+    }
+    
+    private static Usuario consultarUsuarioPorDireccionIdHQL(long id) {
+    	
+    	String queryHql = "from Usuario u where u.direccion_id =:idDireccion";
+    	Query<Usuario> query = session.createQuery(queryHql, Usuario.class);
+    	query.setParameter("idDireccion", id);
+    	Usuario usuario = query.uniqueResult();
+    	
+    	
+    	return usuario;
     }
 }

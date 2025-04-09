@@ -1,4 +1,4 @@
-package es.cursojava.hibernate.dto;
+package es.cursojava.dto;
 
 public class PersonaDTO {
     private String nombre;
