@@ -6,8 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import es.cursojava.inicio.funciones.Utilidades;
 import es.cursojava.poo.ejercicios.Alumno;
+import es.cursojava.utils.Utilidades;
 
 /*
  * 1. Vamos a crear 6 alumnos

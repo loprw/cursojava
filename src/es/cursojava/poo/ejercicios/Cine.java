@@ -1,6 +1,6 @@
 package es.cursojava.poo.ejercicios;
 
-import es.cursojava.inicio.funciones.Utilidades;
+import es.cursojava.utils.Utilidades;
 
 public class Cine {
 

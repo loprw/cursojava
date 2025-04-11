@@ -6,7 +6,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import es.cursojava.inicio.funciones.Utilidades;
+import es.cursojava.utils.Utilidades;
 import es.cursojava.utils.UtilidadesBD;
 
 public class Ejercicio2 {

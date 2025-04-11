@@ -3,8 +3,8 @@ package es.cursojava.excepciones.ejercicios.alumnos;
 import java.util.ArrayList;
 import java.util.List;
 
-import es.cursojava.inicio.funciones.Utilidades;
 import es.cursojava.poo.ejercicios.Alumno;
+import es.cursojava.utils.Utilidades;
 
 public class MainEjercicio1 {
 
