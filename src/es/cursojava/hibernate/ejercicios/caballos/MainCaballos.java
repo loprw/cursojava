@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import es.cursojava.entities.CaballoCarrera;
+import es.cursojava.front.CarreraFront;
 import es.cursojava.hibernate.HibernateUtil;
 import es.cursojava.utils.UtilidadesHibernate;
 
@@ -17,6 +18,11 @@ public class MainCaballos {
 
 	public static void main(String[] args) {
 
+		CarreraFront front = new CarreraFront("Carrera1");
+		front.menu();
+		
+		
+		
 		Session session = HibernateUtil.getSession();
 		UtilidadesHibernate.agregarCaballosBaseDatos(session, crearCaballos());
 

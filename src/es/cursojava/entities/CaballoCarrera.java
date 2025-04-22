@@ -1,10 +1,14 @@
 package es.cursojava.entities;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
@@ -44,13 +48,16 @@ public class CaballoCarrera {
 	@Column(name = "activo")
 	private boolean estaActivo;
 	
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "FK_JINETE")
+	private Jinete jinete;
+	
 	public CaballoCarrera() {
 		
 	}
 
 	public CaballoCarrera(String nombre, int edad, double velocidadMaxima, int numeroTriunfos, double experiencia,
 			boolean estaActivo) {
-		super();
 		this.nombre = nombre;
 		this.edad = edad;
 		this.velocidadMaxima = velocidadMaxima;
