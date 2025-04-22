@@ -31,6 +31,9 @@
         <mapping class="es.cursojava.entities.Estudiante"/>
         <mapping class="es.cursojava.entities.CarnetBiblioteca"/>
         <mapping class="es.cursojava.entities.Cliente"/>
+        <mapping class="es.cursojava.entities.Jinete"/>
+        <mapping class="es.cursojava.entities.Autor"/>
+        <mapping class="es.cursojava.entities.Book"/>
 
     </session-factory>
 </hibernate-configuration>

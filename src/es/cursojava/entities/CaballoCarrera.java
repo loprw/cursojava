@@ -58,7 +58,6 @@ public class CaballoCarrera {
 
 	public CaballoCarrera(String nombre, int edad, double velocidadMaxima, int numeroTriunfos, double experiencia,
 			boolean estaActivo) {
-		super();
 		this.nombre = nombre;
 		this.edad = edad;
 		this.velocidadMaxima = velocidadMaxima;
