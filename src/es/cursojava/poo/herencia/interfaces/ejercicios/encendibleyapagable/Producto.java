@@ -8,10 +8,34 @@ import lombok.Setter;
 @AllArgsConstructor
 public abstract class Producto implements Consultable {
 
-	@Getter
-	@Setter
+
 	private String nombre;
-	@Getter
-	@Setter
+
 	private double precio;
+	
+	
+
+	public Producto(String nombre, double precio) {
+		super();
+		this.nombre = nombre;
+		this.precio = precio;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+	
+	
 }
