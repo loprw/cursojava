@@ -1,6 +1,6 @@
 package es.cursojava.inicio.funciones.ejercicios;
 
-import es.cursojava.inicio.funciones.Utilidades;
+import es.cursojava.utils.Utilidades;
 
 /*3
  * Ejercicio 8

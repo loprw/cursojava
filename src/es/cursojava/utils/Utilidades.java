@@ -1,5 +1,8 @@
-package es.cursojava.inicio.funciones;
+package es.cursojava.utils;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Utilidades {
@@ -12,7 +15,7 @@ public class Utilidades {
 
 		return numero;
 	}
-	
+
 	public static double pideDatoDouble(String texto) {
 
 		System.out.println(texto);
@@ -84,5 +87,25 @@ public class Utilidades {
 	public static void pintaMenu(String texto, String opcion) {
 		String[] menuArray = texto.split(";");
 		pintaMenu(menuArray, opcion);
+	}
+
+	public static Date convertirFecha() {
+
+		String fechaStr = pideDatoCadena("Indica una fecha (formato yyyy-MM-dd");
+		Date fecha = convertirFecha(fechaStr);
+
+		return fecha;
+	}
+
+	public static Date convertirFecha(String fechaStr) {
+
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
+		Date fecha = null;
+		try {
+			fecha = formato.parse(fechaStr);
+		} catch (ParseException e) {
+		}
+
+		return fecha;
 	}
 }

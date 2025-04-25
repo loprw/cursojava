@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Ignorar todo por defecto
 *
 
@@ -17,3 +18,30 @@ recursos/*
 !recursos/**
 .getignore
 !.getignore
+=======
+## Ignorar todo por defecto
+*
+
+## Excepciones: permitir src y bin
+!src/
+!pom.xml
+!SQL/
+!recursos/
+!html/
+!javascript/
+!.getignore
+
+## Ignorar todo dentro de src y bin, excepto sus contenidos
+src/*
+!src/**
+SQL/*
+!SQL/**
+recursos/*
+!recursos/**
+html/*
+!html/**
+javascript/*
+!javascript/**
+.getignore
+!.getignore
+>>>>>>> refs/remotes/origin/master
