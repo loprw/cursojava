@@ -13,11 +13,15 @@ public class CarreraFront {
 
 	private static final Logger logger = LoggerFactory.getLogger(CarreraFront.class);
 	private String nombre;
-	private CarreraService servicio;
+	private CarreraService servicio = new CarreraService();
 
 	public CarreraFront(String nombre) {
 		super();
 		this.nombre = nombre;
+	}
+
+	public CarreraFront() {
+
 	}
 
 	public String getNombre() {
@@ -31,26 +35,30 @@ public class CarreraFront {
 
 		do {
 
-			Utilidades.pintaMenu("\n\n\t\t\t***MENÚ***" + "\n\t1. Registrar Caballo." + "\n\t2. Mostrar Caballos."
-					+ "\n\t3. Lanzar Carrera." + "\n\n\t0. Salir.");
+			Utilidades.pintaMenu("\n\n\t\t\t***MENÚ***\n\n" + "\n\t1. Registrar Caballo." + "\n\t2. Mostrar Caballos."
+					+ "\n\t3. Lanzar Carrera." + "\n\t4. Cambiar Jinete." + "\n\n\t0. Salir.", "");
 
-			opcion = Utilidades.pideDatoNumerico("Indica una opción correcta:");
+			opcion = Utilidades.pideDatoNumerico("Indica una opción:");
 
 			switch (opcion) {
-				case 1 -> {
+			case 1 -> {
 				agregarCaballo();
-				}
-				case 2 -> {
+			}
+			case 2 -> {
 				mostrarCaballos();
-				}
-				case 3 -> {
-				}
-				case 0 -> {
+			}
+			case 3 -> {
+				carrera();
+			}
+			case 4 -> {
+				cambiarJinete();
+			}
+			case 0 -> {
 				logger.info("Se va a cerrar el menú. ¡Adiós!");
-				}
-				default -> {
+			}
+			default -> {
 				logger.info("Has seleccionado una opción incorrecta.");
-				}
+			}
 			}
 		} while (opcion != OPCION_SALIDA);
 
@@ -66,8 +74,10 @@ public class CarreraFront {
 		double experiencia = Utilidades.pideDatoDouble("Indica la experiencia corriendo del caballo (de 0.0 a 10.0):");
 		boolean activo = (Utilidades.pideDatoCadena("Indica si el caballo está activo (s/n)").toLowerCase()
 				.contains("s")) ? true : false;
+		String nombreJinete = Utilidades.pideDatoCadena("Indica el nombre del jinete:");
+		String nacionalidadJinete = Utilidades.pideDatoCadena("Indica la nacionalidad del jinete:");
 
-		CaballoDTO dto = new CaballoDTO(nombre, edad, velocidad, triunfos, experiencia, activo);
+		CaballoDTO dto = new CaballoDTO(nombre, edad, velocidad, triunfos, experiencia, activo, nombreJinete, nacionalidadJinete);
 
 		if (servicio.ingresarCaballo(dto)) {
 			logger.info("Caballo agregado con éxito.");
@@ -87,5 +97,43 @@ public class CarreraFront {
 		} else {
 			logger.info("No hay listado de caballos agregados.");
 		}
+	}
+
+	public boolean mostrarCaballosActivos() {
+		List<CaballoDTO> listado = servicio.recuperarCaballosActivos();
+
+		if (listado.size() > 1) {
+			logger.info("Listado de Caballos participantes: \n");
+			for (CaballoDTO caballoDTO : listado) {
+				logger.info("\t" + caballoDTO.toString());
+			}
+			return true;
+		} else {
+			logger.info("No hay suficientes caballos activos para realizar una carrera (mínimo: 2).");
+			return false;
+		}
+	}
+
+	public void carrera() {
+		if (mostrarCaballosActivos()) {
+			CaballoDTO ganador = servicio.ejecutarCarrera();
+			logger.info("El caballo ganador es: \n" + ganador.toString());
+		}
+	}
+	
+	public void cambiarJinete() {
+		logger.info("Estos son los caballos registrados y sus jinetes:");
+		mostrarCaballos();
+		int id = Utilidades.pideDatoNumerico("Indica el Id del Caballo al cual deseas cambiar de Jinete:");
+		String nombreJinete = Utilidades.pideDatoCadena("Indica el nombre del nuevo Jinete:");
+		String nacionalidadJinete = Utilidades.pideDatoCadena("Indica la nacionalidad del nuevo Jinete:");
+		
+		if (servicio.modificarJinete(id, nombreJinete, nacionalidadJinete)) {
+			logger.info("Se ha modificado correctamente el jinete.");
+		} else {
+			logger.info("No se ha modificado el jinete.");
+		}
+		
+		servicio.recuperarCaballo(id);
 	}
 }

@@ -8,4 +8,5 @@ public interface CaballoCarrerasDAO {
 
 	boolean nuevoCaballo(CaballoCarrera caballo);
 	List<CaballoCarrera> obtenerCaballos();
+	List<CaballoCarrera> obtenerCaballosActivos();
 }

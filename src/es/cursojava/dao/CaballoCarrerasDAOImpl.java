@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import es.cursojava.entities.CaballoCarrera;
 import es.cursojava.hibernate.HibernateUtil;
@@ -22,7 +23,6 @@ public class CaballoCarrerasDAOImpl implements CaballoCarrerasDAO {
 			return false;
 		}
 
-
 		tx.commit();
 			
 		return true;
@@ -35,6 +35,20 @@ public class CaballoCarrerasDAOImpl implements CaballoCarrerasDAO {
 		
 		Session session = HibernateUtil.getSession();
 		List<CaballoCarrera> listado = session.createQuery(HQL, CaballoCarrera.class).list();
+		
+		return listado;
+	}
+	
+	@Override
+	public List<CaballoCarrera> obtenerCaballosActivos() {
+		
+		String HQL = "from CaballoCarrera cc where cc.estaActivo =: param";
+		
+		Session session = HibernateUtil.getSession();
+		Query<CaballoCarrera> query = session.createQuery(HQL, CaballoCarrera.class);
+		query.setParameter("param", true);
+		List<CaballoCarrera> listado = query.list();
+		System.out.println(listado);
 		
 		return listado;
 	}

@@ -25,5 +25,28 @@ public class Jinete {
 		
 	}
 	
-	
+	public Jinete (String nombre, String nacionalidad) {
+		this.nombreJinete = nombre;
+		this.nacionalidad = nacionalidad;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getNombreJinete() {
+		return nombreJinete;
+	}
+
+	public void setNombreJinete(String nombreJinete) {
+		this.nombreJinete = nombreJinete;
+	}
+
+	public String getNacionalidad() {
+		return nacionalidad;
+	}
+
+	public void setNacionalidad(String nacionalidad) {
+		this.nacionalidad = nacionalidad;
+	}
 }

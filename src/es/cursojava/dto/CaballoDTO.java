@@ -9,6 +9,7 @@ public class CaballoDTO {
 	private int triunfos;
 	private double experiencia;
 	private boolean activo;
+	private int distanciaRecorrida;
 	private String nombreJinete;
 	private String nacionalidadJinete;
 	
@@ -32,6 +33,20 @@ public class CaballoDTO {
 		this.triunfos = triunfos;
 		this.experiencia = experiencia;
 		this.activo = activo;
+		this.distanciaRecorrida = 0;
+		this.nombreJinete = nombreJinete;
+		this.nacionalidadJinete = nacionalidadJinete;
+	}
+	
+	public CaballoDTO(String nombre, int edad, double velocidadMaxima, int triunfos, double experiencia, boolean activo,
+			String nombreJinete, String nacionalidadJinete) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.velocidadMaxima = velocidadMaxima;
+		this.triunfos = triunfos;
+		this.experiencia = experiencia;
+		this.activo = activo;
+		this.distanciaRecorrida = 0;
 		this.nombreJinete = nombreJinete;
 		this.nacionalidadJinete = nacionalidadJinete;
 	}
@@ -100,6 +115,14 @@ public class CaballoDTO {
 
 	public void setActivo(boolean activo) {
 		this.activo = activo;
+	}
+
+	public int getDistanciaRecorrida() {
+		return distanciaRecorrida;
+	}
+
+	public void setDistanciaRecorrida(int distanciaRecorrida) {
+		this.distanciaRecorrida = distanciaRecorrida;
 	}
 
 	public String getNombreJinete() {

@@ -65,6 +65,17 @@ public class CaballoCarrera {
 		this.experiencia = experiencia;
 		this.estaActivo = estaActivo;
 	}
+	
+	public CaballoCarrera(String nombre, int edad, double velocidadMaxima, int numeroTriunfos, double experiencia,
+			boolean estaActivo, Jinete jinete) {
+		this.nombre = nombre;
+		this.edad = edad;
+		this.velocidadMaxima = velocidadMaxima;
+		this.numeroTriunfos = numeroTriunfos;
+		this.experiencia = experiencia;
+		this.estaActivo = estaActivo;
+		this.jinete = jinete;
+	}
 
 	public Long getId() {
 		return id;
@@ -120,6 +131,14 @@ public class CaballoCarrera {
 
 	public void setEstaActivo(boolean estaActivo) {
 		this.estaActivo = estaActivo;
+	}
+
+	public Jinete getJinete() {
+		return jinete;
+	}
+
+	public void setJinete(Jinete jinete) {
+		this.jinete = jinete;
 	}
 
 	@Override
