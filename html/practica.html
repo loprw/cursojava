@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Registro</title>
+  
+  <!-- ENLACE AL ARCHIVO CSS -->
+  <!--  <link rel="stylesheet" href="css/estilos.css"> -->
+  <link rel="stylesheet" href="css/estilos2.css">
+  
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Formulario de Registro de Cliente</h2>
+
+    <form action="pagina_destino.html" method="GET">
+      <!-- CAMPO NOMBRE -->
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" maxlength="30" required>
+      </div>
+
+      <!-- CAMPO APELLIDOS -->
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" maxlength="50" required>
+      </div>
+
+      <!-- CAMPO DNI CON EXPRESION REGULAR -->
+      <div class="form-group">
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" name="dni" maxlength="9" pattern="^[0-9]{8}[A-Za-z]$" required>
+        <small>Formato: 12345678Z</small>
+      </div>
+
+      <!-- CAMPO FECHA DE NACIMIENTO -->
+      <div class="form-group">
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+      </div>
+
+      <!-- BOTON PARA ENVIAR EL REGISTRO -->
+      <a href="clientes.html">
+      	<!-- <button type="submit">Registrar Cliente</button> -->
+      	<button> Registrar Cliente</button>
+      </a>
+    </form>
+  </div>
+
+</body>
+</html>
